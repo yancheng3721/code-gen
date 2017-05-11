@@ -1,0 +1,107 @@
+
+<#include   "/head/head.ftl">
+
+<script type="text/javascript">
+if('${_msg}'!=null&&'${_msg}'!=""){
+   alert('${_msg}');
+}
+
+	function selThis(ary){
+		
+		if(window.opener&&window.opener.__receivers&&ary){
+		  	if(ary&&ary.length&&window.opener.__receivers.length){
+		  		for(var i=0;i<ary.length;i++){
+		  			if(window.opener.__receivers[i]){
+		  				window.opener.__receivers[i].val(ary[i]);
+		  			}
+		  		}
+		  	}
+		}
+		window.close();
+	}
+	//查询
+	function doQuery(){
+		
+		var searchForm = $("#searchForm");
+		searchForm.attr("action", "/@context@/selector/query.do").submit()
+	}
+	
+	$(function() {
+		if(window.location.href.indexOf('/@context@/selector/query.do')==-1){
+			//alert(window.location.href);
+			doQuery();
+		}
+	});	
+	
+</script>
+<div style="background:white;" >
+<form method="post" action="" id="searchForm">			
+		<div class="mRtBox">
+		
+			<div class="rTitle" >
+				<h3>@SelectorCNName@选择<span style="color:red"></span></h3>
+			</div>
+			
+			<div class="searchCenter">
+				
+				<input type="hidden" name="__querySql" value="@QuerySql@"/>
+				<input type="hidden" name="module" value="@SelectorName@"/>
+				
+				<table width="100%" class="searTabBg">
+					@searchBoxTr@
+					
+				</table>
+				
+			</div>
+			<div class="searchCenter">
+				<button id='queryBtn' onClick="doQuery()"><span><span>查询</span></span></button>
+			</div>
+			
+			<div class="searchCenter" style="position:relative;overflow:auto;height:330px">
+			<table width="100%"  class="list">		
+				<tr style="position:relative;top:expression(this.offsetParent.scrollTop);">
+					<th width=60px >序号</th>
+					@listTH@
+				</tr>
+				<#list objs as obj>
+				<tr  onmouseover="this.className='even_over'" onmouseout="this.className=''" style="cursor:pointer" onClick="selThis([@returnArrayStr@])">
+					<td align="left">
+						
+						${page.length*(page.currentPage-1)+obj_index+1}
+					</td>
+					
+					@listTD@
+					
+				</tr>
+				</#list>
+			
+			</table>
+			</div>
+			
+			<div class="searchCenter" style="text-align:right">
+				<script type="text/javascript">
+					window.__page=new SnPage(document.getElementById("searchForm"),'/@context@/selector/query.do','${page.totalPage?c}','${page.currentPage?c}');
+				</script>
+				   每页<input type="text"  name="length" size=2 value="${page.length?c}"/>条记录
+				|共<span style="color:red">${page.total?c}</span>条记录
+				|第  <span style="color:red">${page.currentPage?c}/${page.totalPage?c}</span> 页
+				|<a href="#" onclick="__page.goToPage('1');" >首页</a>
+				|<a href="#" onclick="__page.goToPage('${page.beforePage?c}');" >上一页</a>
+				|<a href="#" onclick="__page.goToPage('${page.nextPage?c}');" >下一页</a>
+				|<a href="#" onclick="__page.goToPage('${page.totalPage?c}');" >尾页</a>
+				|
+				|第<input type="text" id="currentPage" value="${page.currentPage?c}" name="currentPage" size=2/>页 
+				 <input type="button" value="GO" onclick="__page.goToPage(document.getElementById('currentPage').value);" style="width:30px;height:24px;font:black 20px;"/>
+				
+			</div>
+			</form>
+		</div>
+
+</div>
+
+<#--同步信息-->
+<div id="syncData" style="display:none;text-align:center;">
+	<span style="font-size:12pt;">
+		正在同步，请稍等...，<b>请勿关闭该窗口</b>
+	</span>
+</div>
