@@ -38,7 +38,7 @@ public class FeatureManualSortConfig implements ModuleConfig {
 		replacement.put("@upperHeadModule@", "FeatureManualSort");
 		replacement.put("@moduleCN@", "专题页人工干预排序");
 		replacement.put("@packageController@",
-				"com.concentrate.search.admin.web.controller.sort");
+				"com.concentrate.search.admin.controller.sort");
 		replacement.put("@packageService@",
 				"com.concentrate.search.admin.service.sort");
 		replacement.put("@packageDao@", "com.concentrate.search.admin.dao.sort");

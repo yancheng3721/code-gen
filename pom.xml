@@ -3,29 +3,26 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<parent>
-		<artifactId>concentrate-parent</artifactId>
-		<groupId>com.concentrate.search</groupId>
+        <groupId>com.concentrate.search</groupId>
+        <artifactId>concentrate-parent</artifactId>
 		<version>1.4.0</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.concentrate.search</groupId>
 	<artifactId>code-gen</artifactId>
-	<version>1.0.1</version>
+    <packaging>pom</packaging>
+    <version>1.0.1</version>
+    <modules>
+        <module>../concentrate-parent/admin</module>
+    </modules>
 
 
-	<dependencies>
-		<dependency>
-			<groupId>jdk.tools</groupId>
-			<artifactId>jdk.tools</artifactId>
-			<version>1.6</version>
-			<scope>system</scope>
-			<systemPath>${JAVA_HOME}/lib/tools.jar</systemPath>
-		</dependency>
+    <dependencies>
+
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
-			<version>1.1.18</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -74,31 +71,16 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
+			<!--
+			    <configuration>
 					<source>1.6</source>
 					<target>1.6</target>
 					<encoding>UTF-8</encoding>
 				</configuration>
+			-->
 			</plugin>
 			
-			<plugin>
-		        <artifactId>maven-assembly-plugin</artifactId>
-		        <version>2.5.3</version>
-		        <configuration>
-		          <descriptorRefs>
-		            <descriptorRef>jar-with-dependencies</descriptorRef>
-		          </descriptorRefs>
-		        </configuration>
-		        <executions>
-		          <execution>
-		            <id>make-assembly</id> <!-- this is used for inheritance merges -->
-		            <phase>package</phase> <!-- bind to the packaging phase -->
-		            <goals>
-		              <goal>single</goal>
-		            </goals>
-		          </execution>
-		        </executions>
-		      </plugin>
+
 		</plugins>
 	</build>
 	

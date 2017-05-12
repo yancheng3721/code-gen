@@ -36,7 +36,7 @@ public class DirectUrlConfig implements ModuleConfig {
 		replacement.put("@upperHeadModule@", "DirectUrl");
 		replacement.put("@moduleCN@", "易选搜索直达URL");
 		replacement.put("@packageController@",
-				"com.concentrate.search.admin.web.controller.directurl");
+				"com.concentrate.search.admin.controller.directurl");
 		replacement.put("@packageService@",
 				"com.concentrate.search.admin.service.directurl");
 		replacement.put("@packageDao@",

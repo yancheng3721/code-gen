@@ -33,7 +33,7 @@ public class VirtualCatalogueConfig implements ModuleConfig{
 		replacement.put("@upperHeadModule@", "VirtualCatalogue");
 		replacement.put("@moduleCN@", "虚拟目录管理");
 		replacement.put("@packageController@",
-				"com.concentrate.search.admin.web.controller.catalogue");
+				"com.concentrate.search.admin.controller.catalogue");
 		replacement.put("@packageService@",
 				"com.concentrate.search.admin.service.catalogue");
 		replacement.put("@packageDao@",

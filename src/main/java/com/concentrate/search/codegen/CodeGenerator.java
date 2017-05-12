@@ -8,9 +8,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.concentrate.search.codegen.impl.admin.*;
 import org.apache.commons.io.FileUtils;
 
-import com.concentrate.search.codegen.impl.TmnMetaDataConfig;
 import com.concentrate.search.codegen.util.JSONUtil;
 
 /**
@@ -93,7 +93,7 @@ public class CodeGenerator {
 		ProjectInfo.PROJECT = "admin";
 		ProjectInfo.CONTEXT = "admin";
 		ProjectInfo.OVERWRITE = true;
-		ModuleConfig mc = new TmnMetaDataConfig();
+		ModuleConfig mc = new UserConfig();
 		generateSingleModule(mc);
 	}
 
@@ -175,7 +175,7 @@ public class CodeGenerator {
 		// "utf-8");
 		String s = FileUtils.readFileToString(
 				new File(CodeGenerator.class.getClassLoader()
-						.getResource("com/concentrate/search/codegen/auth.gen")
+						.getResource("auth.gen")
 						.getFile()), "utf-8");
 		// String s =
 		// CodeGenerator.class.getClassLoader().getResource("com/concentrate/search/codegen/auth.gen").getFile();
@@ -240,7 +240,7 @@ public class CodeGenerator {
 				new File(CodeGenerator.class
 						.getClassLoader()
 						.getResource(
-								"com/concentrate/search/codegen/daoTemplate.gen")
+                                "daoTemplate.gen")
 						.getFile()), "utf-8");
 		if (replacement != null && replacement.size() > 0) {
 			for (Map.Entry<String, String> e : replacement.entrySet()) {
@@ -285,7 +285,7 @@ public class CodeGenerator {
 								CodeGenerator.class
 										.getClassLoader()
 										.getResource(
-												"com/concentrate/search/codegen/serviceTemplate.gen")
+                                                "serviceTemplate.gen")
 										.getFile()), "utf-8");
 		if (replacement != null && replacement.size() > 0) {
 			for (Map.Entry<String, String> e : replacement.entrySet()) {
@@ -316,7 +316,7 @@ public class CodeGenerator {
 								CodeGenerator.class
 										.getClassLoader()
 										.getResource(
-												"com/concentrate/search/codegen/controllerTemplate.gen")
+                                                "controllerTemplate.gen")
 										.getFile()), "utf-8");
 		if (replacement != null && replacement.size() > 0) {
 			for (Map.Entry<String, String> e : replacement.entrySet()) {
@@ -342,7 +342,7 @@ public class CodeGenerator {
 								CodeGenerator.class
 										.getClassLoader()
 										.getResource(
-												"com/concentrate/search/codegen/freemarker.gen")
+                                                "freemarker.gen")
 										.getFile()), "utf-8");
 		if (replacement != null && replacement.size() > 0) {
 			for (Map.Entry<String, String> e : replacement.entrySet()) {

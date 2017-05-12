@@ -79,7 +79,7 @@ public class ModuleCacheConfig implements ModuleConfig {
 		replacement.put("@upperHeadModule@", "ModuleCache");
 		replacement.put("@moduleCN@", "模块缓存");
 		replacement.put("@packageController@",
-				"com.concentrate.search.admin.web.controller.modulecache");
+				"com.concentrate.search.admin.controller.modulecache");
 		replacement.put("@packageService@",
 				"com.concentrate.search.admin.service.modulecache");
 		replacement.put("@packageDao@",

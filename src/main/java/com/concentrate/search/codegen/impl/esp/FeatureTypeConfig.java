@@ -29,7 +29,7 @@ public class FeatureTypeConfig implements ModuleConfig {
 		replacement.put("@upperHeadModule@", "FeatureType");
 		replacement.put("@moduleCN@", "专题类型");
 		replacement.put("@packageController@",
-				"com.concentrate.search.admin.web.controller.feature");
+				"com.concentrate.search.admin.controller.feature");
 		replacement.put("@packageService@",
 				"com.concentrate.search.admin.service.feature");
 		replacement.put("@packageDao@", "com.concentrate.search.admin.dao.feature");

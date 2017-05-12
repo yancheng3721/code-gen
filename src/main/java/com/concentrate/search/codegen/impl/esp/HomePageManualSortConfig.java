@@ -38,7 +38,7 @@ public class HomePageManualSortConfig implements ModuleConfig{
 		replacement.put("@upperHeadModule@", "HomePageManualSort");
 		replacement.put("@moduleCN@", "首页人工干预排序");
 		replacement.put("@packageController@",
-				"com.concentrate.search.admin.web.controller.sort");
+				"com.concentrate.search.admin.controller.sort");
 		replacement.put("@packageService@",
 				"com.concentrate.search.admin.service.sort");
 		replacement.put("@packageDao@", "com.concentrate.search.admin.dao.sort");

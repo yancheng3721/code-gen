@@ -7,6 +7,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import com.concentrate.search.codegen.selector.impl.FullPathDirSelector;
 import org.apache.commons.io.FileUtils;
 
 import com.concentrate.search.codegen.CodeGenerator;
@@ -29,11 +30,11 @@ public class SelectorGenerater {
 		
 	*/
 	public static void main(String[] args) throws IOException {
-		ProjectInfo.WORKSPACE = "D:/workspaces";
-		ProjectInfo.PROJECT = "admin-1.0.67";
+		ProjectInfo.WORKSPACE = "f:/develop/github/";
+		ProjectInfo.PROJECT = "admin";
 		ProjectInfo.CONTEXT = "admin";
 		ProjectInfo.OVERWRITE=true;
-		SelectorConfig mc = new BigPromotionLotterySelector();
+		SelectorConfig mc = new FullPathDirSelector();
 		generateSelector(mc);
 	}
 	
@@ -88,7 +89,7 @@ public class SelectorGenerater {
 
 	public static void makeSelectorFtl(Map<String, String> replacement) throws IOException {
 		File f = createFile(ProjectInfo.WORKSPACE+"/"+ProjectInfo.PROJECT+"/"+ProjectInfo.FREEMARKER_SOURCE_HOME+"/selector",replacement.get("@SelectorName@")+".ftl");
-		String s = FileUtils.readFileToString(new File(CodeGenerator.class.getClassLoader().getResource("com/concentrate/search/codegen/selector.gen").getFile()), "utf-8");
+		String s = FileUtils.readFileToString(new File(CodeGenerator.class.getClassLoader().getResource("selector.gen").getFile()), "utf-8");
 		if(replacement!=null&&replacement.size()>0){
 			for(Map.Entry<String, String> e:replacement.entrySet()){
 				String k = e.getKey();

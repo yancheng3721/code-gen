@@ -37,7 +37,7 @@ public class CatalogueRelationConfig implements ModuleConfig {
 		replacement.put("@upperHeadModule@", "CatalogueRelation");
 		replacement.put("@moduleCN@", "虚拟目录与实际目录关系");
 		replacement.put("@packageController@",
-				"com.concentrate.search.admin.web.controller.catalogue");
+				"com.concentrate.search.admin.controller.catalogue");
 		replacement.put("@packageService@",
 				"com.concentrate.search.admin.service.catalogue");
 		replacement

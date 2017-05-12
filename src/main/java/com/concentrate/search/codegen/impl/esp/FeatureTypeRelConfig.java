@@ -32,7 +32,7 @@ public class FeatureTypeRelConfig implements ModuleConfig {
 		replacement.put("@upperHeadModule@", "FeatureTypeRel");
 		replacement.put("@moduleCN@", "专题与类型对应关系");
 		replacement.put("@packageController@",
-				"com.concentrate.search.admin.web.controller.feature");
+				"com.concentrate.search.admin.controller.feature");
 		replacement.put("@packageService@",
 				"com.concentrate.search.admin.service.feature");
 		replacement.put("@packageDao@", "com.concentrate.search.admin.dao.feature");
