@@ -12,18 +12,18 @@ public class MenuConfig implements ModuleConfig {
 	@Override
 	public LinkedHashMap<String, Map<String, String>> getAllFileds() {
 		LinkedHashMap<String, Map<String, String>> results = new LinkedHashMap<String, Map<String, String>>();
-		results.put("ID", CodeGenerator.newFiled("ID", "ID"));
-		results.put("TYPE", CodeGenerator.newFiled("TYPE", "类型", "NOT_NULL"));
-		results.put("PARENT_ID", CodeGenerator.newFiled("PARENT_ID", "父菜单"));
+		results.put("ID", CodeGenerator.newField("ID", "ID"));
+		results.put("TYPE", CodeGenerator.newField("TYPE", "类型", "NOT_NULL"));
+		results.put("PARENT_ID", CodeGenerator.newField("PARENT_ID", "父菜单"));
 		results.put("NAME",
-				CodeGenerator.newFiled("NAME", "菜单（功能）名", "NOT_NULL"));
-		results.put("URL", CodeGenerator.newFiled("URL", "功能路径"));
+				CodeGenerator.newField("NAME", "菜单（功能）名", "NOT_NULL"));
+		results.put("URL", CodeGenerator.newField("URL", "功能路径"));
 		results.put("UPDATE_USER",
-				CodeGenerator.newFiled("UPDATE_USER", "更新用户"));
+				CodeGenerator.newField("UPDATE_USER", "更新用户"));
 		results.put("CREATE_TIME",
-				CodeGenerator.newFiled("CREATE_TIME", "创建时间"));
+				CodeGenerator.newField("CREATE_TIME", "创建时间"));
 		results.put("UPDATE_TIME",
-				CodeGenerator.newFiled("UPDATE_TIME", "更新时间"));
+				CodeGenerator.newField("UPDATE_TIME", "更新时间"));
 		return results;
 	}
 

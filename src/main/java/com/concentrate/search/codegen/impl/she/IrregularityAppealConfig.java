@@ -11,28 +11,28 @@ public class IrregularityAppealConfig implements ModuleConfig {
 	@Override
 	public LinkedHashMap<String, Map<String, String>> getAllFileds() {
 		LinkedHashMap<String, Map<String, String>> results = new LinkedHashMap<String, Map<String, String>>();
-		results.put("ID", CodeGenerator.newFiled("ID", "ID"));
+		results.put("ID", CodeGenerator.newField("ID", "ID"));
 		results.put("IRREGULARITY_ID",
-				CodeGenerator.newFiled("IRREGULARITY_ID", "违规记录ID", "NOT_NULL"));
+				CodeGenerator.newField("IRREGULARITY_ID", "违规记录ID", "NOT_NULL"));
 		results.put("CONTACT",
-				CodeGenerator.newFiled("CONTACT", "联系方式", "NOT_NULL"));
+				CodeGenerator.newField("CONTACT", "联系方式", "NOT_NULL"));
 		results.put("REASON",
-				CodeGenerator.newFiled("REASON", "申诉理由", "NOT_NULL"));
-		results.put("MESSAGE", CodeGenerator.newFiled("MESSAGE", "留言"));
-		results.put("ATTACHMENT", CodeGenerator.newFiled("ATTACHMENT", "附件"));
+				CodeGenerator.newField("REASON", "申诉理由", "NOT_NULL"));
+		results.put("MESSAGE", CodeGenerator.newField("MESSAGE", "留言"));
+		results.put("ATTACHMENT", CodeGenerator.newField("ATTACHMENT", "附件"));
 		results.put("STATUS",
-				CodeGenerator.newFiled("STATUS", "申诉状态", "NOT_NULL"));
-		results.put("REMARK", CodeGenerator.newFiled("REMARK", "备注"));
+				CodeGenerator.newField("STATUS", "申诉状态", "NOT_NULL"));
+		results.put("REMARK", CodeGenerator.newField("REMARK", "备注"));
 		results.put("AUDIT_TIME",
-				CodeGenerator.newFiled("AUDIT_TIME", "审核状态", "NOT_NULL"));
+				CodeGenerator.newField("AUDIT_TIME", "审核状态", "NOT_NULL"));
 		results.put("AUDIT_USER",
-				CodeGenerator.newFiled("AUDIT_USER", "审核人", "NOT_NULL"));
+				CodeGenerator.newField("AUDIT_USER", "审核人", "NOT_NULL"));
 		results.put("UPDATE_USER",
-				CodeGenerator.newFiled("UPDATE_USER", "更新用户"));
+				CodeGenerator.newField("UPDATE_USER", "更新用户"));
 		results.put("CREATE_TIME",
-				CodeGenerator.newFiled("CREATE_TIME", "创建时间"));
+				CodeGenerator.newField("CREATE_TIME", "创建时间"));
 		results.put("UPDATE_TIME",
-				CodeGenerator.newFiled("UPDATE_TIME", "更新时间"));
+				CodeGenerator.newField("UPDATE_TIME", "更新时间"));
 		return results;
 	}
 

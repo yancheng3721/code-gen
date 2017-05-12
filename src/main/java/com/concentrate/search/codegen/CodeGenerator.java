@@ -89,8 +89,8 @@ public class CodeGenerator {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
-		ProjectInfo.WORKSPACE = "D:/workspaces";
-		ProjectInfo.PROJECT = "admin-1.0.80";
+		ProjectInfo.WORKSPACE = "F:/develop/github/";
+		ProjectInfo.PROJECT = "admin";
 		ProjectInfo.CONTEXT = "admin";
 		ProjectInfo.OVERWRITE = true;
 		ModuleConfig mc = new TmnMetaDataConfig();
@@ -518,8 +518,8 @@ public class CodeGenerator {
 
 	}
 
-	public static Map<String, String> newFiled(String key, String cn,
-			String... features) {
+	public static Map<String, String> newField(String key, String cn,
+                                               String... features) {
 		Map<String, String> result = new HashMap<String, String>();
 		result.put("_KEY_", key);
 		result.put("_CN_", cn);

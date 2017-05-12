@@ -11,14 +11,14 @@ public class TmnPromotionRelConfig implements ModuleConfig {
 	@Override
 	public LinkedHashMap<String, Map<String, String>> getAllFileds() {
 		LinkedHashMap<String, Map<String, String>>  results = new LinkedHashMap<String, Map<String, String>>();
-		results.put("ID",CodeGenerator.newFiled("ID","ID"));
-		results.put("TYPE",CodeGenerator.newFiled("TYPE","结果页/列表页","UNIQ","NOT_NULL"));
-		results.put("KEYWORD",CodeGenerator.newFiled("KEYWORD","关键词","UNIQ","NOT_NULL"));
-		results.put("CORE_ROOT",CodeGenerator.newFiled("CORE_ROOT","终端类型","UNIQ","NOT_NULL"));
-		results.put("PROMOTION_ID",CodeGenerator.newFiled("PROMOTION_ID","专区ID","NOT_NULL"));
-		results.put("UPDATE_USER",CodeGenerator.newFiled("UPDATE_USER","更新用户"));
-		results.put("UPDATE_TIME",CodeGenerator.newFiled("UPDATE_TIME","更新时间"));
-		results.put("CREATE_TIME",CodeGenerator.newFiled("CREATE_TIME","创建时间"));
+		results.put("ID",CodeGenerator.newField("ID", "ID"));
+		results.put("TYPE",CodeGenerator.newField("TYPE", "结果页/列表页", "UNIQ", "NOT_NULL"));
+		results.put("KEYWORD",CodeGenerator.newField("KEYWORD", "关键词", "UNIQ", "NOT_NULL"));
+		results.put("CORE_ROOT",CodeGenerator.newField("CORE_ROOT", "终端类型", "UNIQ", "NOT_NULL"));
+		results.put("PROMOTION_ID",CodeGenerator.newField("PROMOTION_ID", "专区ID", "NOT_NULL"));
+		results.put("UPDATE_USER",CodeGenerator.newField("UPDATE_USER", "更新用户"));
+		results.put("UPDATE_TIME",CodeGenerator.newField("UPDATE_TIME", "更新时间"));
+		results.put("CREATE_TIME",CodeGenerator.newField("CREATE_TIME", "创建时间"));
 		return results;
 	}
 

@@ -11,19 +11,19 @@ public class OperationTaskConfig implements ModuleConfig {
 	@Override
 	public LinkedHashMap<String, Map<String, String>> getAllFileds() {
 		LinkedHashMap<String, Map<String, String>> results = new LinkedHashMap<String, Map<String, String>>();
-		results.put("ID", CodeGenerator.newFiled("ID", "ID"));
+		results.put("ID", CodeGenerator.newField("ID", "ID"));
 		results.put("SUBJECT",
-				CodeGenerator.newFiled("SUBJECT", "任务主题", "NOT_NULL"));
+				CodeGenerator.newField("SUBJECT", "任务主题", "NOT_NULL"));
 		results.put("DETAIL",
-				CodeGenerator.newFiled("DETAIL", "任务描述", "NOT_NULL"));
+				CodeGenerator.newField("DETAIL", "任务描述", "NOT_NULL"));
 		results.put("DEADLINE",
-				CodeGenerator.newFiled("DEADLINE", "截止时间", "NOT_NULL"));
+				CodeGenerator.newField("DEADLINE", "截止时间", "NOT_NULL"));
 		results.put("UPDATE_USER",
-				CodeGenerator.newFiled("UPDATE_USER", "更新用户"));
+				CodeGenerator.newField("UPDATE_USER", "更新用户"));
 		results.put("CREATE_TIME",
-				CodeGenerator.newFiled("CREATE_TIME", "创建时间"));
+				CodeGenerator.newField("CREATE_TIME", "创建时间"));
 		results.put("UPDATE_TIME",
-				CodeGenerator.newFiled("UPDATE_TIME", "更新时间"));
+				CodeGenerator.newField("UPDATE_TIME", "更新时间"));
 		return results;
 	}
 

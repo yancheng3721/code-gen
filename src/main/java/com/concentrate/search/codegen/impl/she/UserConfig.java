@@ -12,21 +12,21 @@ public class UserConfig implements ModuleConfig {
 	@Override
 	public LinkedHashMap<String, Map<String, String>> getAllFileds() {
 		LinkedHashMap<String, Map<String, String>> results = new LinkedHashMap<String, Map<String, String>>();
-		results.put("ID", CodeGenerator.newFiled("ID", "ID"));
-		results.put("NAME", CodeGenerator.newFiled("NAME", "用户名", "NOT_NULL"));
-		results.put("ALIAS", CodeGenerator.newFiled("ALIAS", "别名"));
+		results.put("ID", CodeGenerator.newField("ID", "ID"));
+		results.put("NAME", CodeGenerator.newField("NAME", "用户名", "NOT_NULL"));
+		results.put("ALIAS", CodeGenerator.newField("ALIAS", "别名"));
 		results.put("PASSWORD",
-				CodeGenerator.newFiled("PASSWORD", "密码", "NOT_NULL"));
+				CodeGenerator.newField("PASSWORD", "密码", "NOT_NULL"));
 		results.put("ROLE_ID",
-				CodeGenerator.newFiled("ROLE_ID", "角色ID", "NOT_NULL"));
+				CodeGenerator.newField("ROLE_ID", "角色ID", "NOT_NULL"));
 		results.put("STATUS",
-				CodeGenerator.newFiled("STATUS", "账号状态", "NOT_NULL"));
+				CodeGenerator.newField("STATUS", "账号状态", "NOT_NULL"));
 		results.put("UPDATE_USER",
-				CodeGenerator.newFiled("UPDATE_USER", "更新用户"));
+				CodeGenerator.newField("UPDATE_USER", "更新用户"));
 		results.put("CREATE_TIME",
-				CodeGenerator.newFiled("CREATE_TIME", "创建时间"));
+				CodeGenerator.newField("CREATE_TIME", "创建时间"));
 		results.put("UPDATE_TIME",
-				CodeGenerator.newFiled("UPDATE_TIME", "更新时间"));
+				CodeGenerator.newField("UPDATE_TIME", "更新时间"));
 		return results;
 	}
 

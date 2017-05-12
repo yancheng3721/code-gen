@@ -11,31 +11,31 @@ public class IrregularityConfig implements ModuleConfig {
 	@Override
 	public LinkedHashMap<String, Map<String, String>> getAllFileds() {
 		LinkedHashMap<String, Map<String, String>> results = new LinkedHashMap<String, Map<String, String>>();
-		results.put("ID", CodeGenerator.newFiled("ID", "ID"));
+		results.put("ID", CodeGenerator.newField("ID", "ID"));
 		results.put("BIZCODE",
-				CodeGenerator.newFiled("BIZCODE", "商家编码", "NOT_NULL"));
+				CodeGenerator.newField("BIZCODE", "商家编码", "NOT_NULL"));
 		results.put("COMMODITY_CODE",
-				CodeGenerator.newFiled("COMMODITY_CODE", "商品编码", "NOT_NULL"));
+				CodeGenerator.newField("COMMODITY_CODE", "商品编码", "NOT_NULL"));
 		results.put("COMMODITY_NAME",
-				CodeGenerator.newFiled("COMMODITY_NAME", "商品名称", "NOT_NULL"));
+				CodeGenerator.newField("COMMODITY_NAME", "商品名称", "NOT_NULL"));
 		results.put("HANDLE_TIME",
-				CodeGenerator.newFiled("HANDLE_TIME", "处置时间", "NOT_NULL"));
+				CodeGenerator.newField("HANDLE_TIME", "处置时间", "NOT_NULL"));
 		results.put("HANDLE_METHOD",
-				CodeGenerator.newFiled("HANDLE_METHOD", "处置方法", "NOT_NULL"));
+				CodeGenerator.newField("HANDLE_METHOD", "处置方法", "NOT_NULL"));
 		results.put("HANDLE_CYCLE",
-				CodeGenerator.newFiled("HANDLE_CYCLE", "处置周期", "NOT_NULL"));
+				CodeGenerator.newField("HANDLE_CYCLE", "处置周期", "NOT_NULL"));
 		results.put("IRREGULARITY_TYPE",
-				CodeGenerator.newFiled("IRREGULARITY_TYPE", "违规类型", "NOT_NULL"));
+				CodeGenerator.newField("IRREGULARITY_TYPE", "违规类型", "NOT_NULL"));
 		results.put("IRREGULARITY_TIME",
-				CodeGenerator.newFiled("IRREGULARITY_TIME", "违规时间", "NOT_NULL"));
+				CodeGenerator.newField("IRREGULARITY_TIME", "违规时间", "NOT_NULL"));
 		results.put("IRREGULARITY_REASON",
-				CodeGenerator.newFiled("IRREGULARITY_REASON", "违规原因", "NOT_NULL"));
+				CodeGenerator.newField("IRREGULARITY_REASON", "违规原因", "NOT_NULL"));
 		results.put("UPDATE_USER",
-				CodeGenerator.newFiled("UPDATE_USER", "更新用户"));
+				CodeGenerator.newField("UPDATE_USER", "更新用户"));
 		results.put("CREATE_TIME",
-				CodeGenerator.newFiled("CREATE_TIME", "创建时间"));
+				CodeGenerator.newField("CREATE_TIME", "创建时间"));
 		results.put("UPDATE_TIME",
-				CodeGenerator.newFiled("UPDATE_TIME", "更新时间"));
+				CodeGenerator.newField("UPDATE_TIME", "更新时间"));
 		return results;
 	}
 

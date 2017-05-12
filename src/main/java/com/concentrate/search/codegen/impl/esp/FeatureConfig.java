@@ -12,31 +12,31 @@ public class FeatureConfig implements ModuleConfig {
 	@Override
 	public LinkedHashMap<String, Map<String, String>> getAllFileds() {
 		LinkedHashMap<String, Map<String, String>> results = new LinkedHashMap<String, Map<String, String>>();
-		results.put("ID", CodeGenerator.newFiled("ID", "ID"));
+		results.put("ID", CodeGenerator.newField("ID", "ID"));
 		results.put("SHOW_NAME",
-				CodeGenerator.newFiled("SHOW_NAME", "展示名称", "NOT_NULL"));
+				CodeGenerator.newField("SHOW_NAME", "展示名称", "NOT_NULL"));
 		results.put("DESCRIPTION",
-				CodeGenerator.newFiled("DESCRIPTION", "专题描述", "NOT_NULL"));
-		results.put("SORT", CodeGenerator.newFiled("SORT", "主站排序值", "NOT_NULL"));
+				CodeGenerator.newField("DESCRIPTION", "专题描述", "NOT_NULL"));
+		results.put("SORT", CodeGenerator.newField("SORT", "主站排序值", "NOT_NULL"));
 		results.put("APP_SORT",
-				CodeGenerator.newFiled("APP_SORT", "APP排序值", "NOT_NULL"));
+				CodeGenerator.newField("APP_SORT", "APP排序值", "NOT_NULL"));
 		/*
 		 * results.put("SORT_TYPE", CodeGenerator.newFiled("SORT_TYPE",
 		 * "结果集排序规则", "NOT_NULL"));
 		 */
 		results.put("FILTER",
-				CodeGenerator.newFiled("FILTER", "过滤规则", "NOT_NULL"));
-		results.put("TOPIC_NAME", CodeGenerator.newFiled("TOPIC_NAME", "专题名"));
+				CodeGenerator.newField("FILTER", "过滤规则", "NOT_NULL"));
+		results.put("TOPIC_NAME", CodeGenerator.newField("TOPIC_NAME", "专题名"));
 		results.put("TOPIC_CODE",
-				CodeGenerator.newFiled("TOPIC_CODE", "专题编码", "NOT_NULL"));
+				CodeGenerator.newField("TOPIC_CODE", "专题编码", "NOT_NULL"));
 		results.put("SEO_CODE",
-				CodeGenerator.newFiled("SEO_CODE", "SEO编码", "NOT_NULL"));
+				CodeGenerator.newField("SEO_CODE", "SEO编码", "NOT_NULL"));
 		results.put("UPDATE_USER",
-				CodeGenerator.newFiled("UPDATE_USER", "更新用户"));
+				CodeGenerator.newField("UPDATE_USER", "更新用户"));
 		results.put("CREATE_TIME",
-				CodeGenerator.newFiled("CREATE_TIME", "创建时间"));
+				CodeGenerator.newField("CREATE_TIME", "创建时间"));
 		results.put("UPDATE_TIME",
-				CodeGenerator.newFiled("UPDATE_TIME", "更新时间"));
+				CodeGenerator.newField("UPDATE_TIME", "更新时间"));
 		return results;
 	}
 

@@ -11,19 +11,19 @@ public class AssociateWordPropertyConfig implements ModuleConfig {
 	@Override
 	public LinkedHashMap<String, Map<String, String>> getAllFileds() {
 		LinkedHashMap<String, Map<String, String>> results = new LinkedHashMap<String, Map<String, String>>();
-		results.put("ID", CodeGenerator.newFiled("ID", "ID"));
+		results.put("ID", CodeGenerator.newField("ID", "ID"));
 		results.put("KEYWORD",
-				CodeGenerator.newFiled("KEYWORD", "联想词", "NOT_NULL"));
+				CodeGenerator.newField("KEYWORD", "联想词", "NOT_NULL"));
 		results.put("PROPERTY_A",
-				CodeGenerator.newFiled("PROPERTY_A", "属性值1", "NOT_NULL"));
-		results.put("PROPERTY_B", CodeGenerator.newFiled("PROPERTY_B", "属性值2"));
-		results.put("PROPERTY_C", CodeGenerator.newFiled("PROPERTY_C", "属性值3"));
+				CodeGenerator.newField("PROPERTY_A", "属性值1", "NOT_NULL"));
+		results.put("PROPERTY_B", CodeGenerator.newField("PROPERTY_B", "属性值2"));
+		results.put("PROPERTY_C", CodeGenerator.newField("PROPERTY_C", "属性值3"));
 		results.put("UPDATE_USER",
-				CodeGenerator.newFiled("UPDATE_USER", "更新用户"));
+				CodeGenerator.newField("UPDATE_USER", "更新用户"));
 		results.put("UPDATE_TIME",
-				CodeGenerator.newFiled("UPDATE_TIME", "更新时间"));
+				CodeGenerator.newField("UPDATE_TIME", "更新时间"));
 		results.put("CREATE_TIME",
-				CodeGenerator.newFiled("CREATE_TIME", "创建时间"));
+				CodeGenerator.newField("CREATE_TIME", "创建时间"));
 		return results;
 	}
 

@@ -12,40 +12,40 @@ public class BadcaseConfig implements ModuleConfig {
 	@Override
 	public LinkedHashMap<String, Map<String, String>> getAllFileds() {
 		LinkedHashMap<String, Map<String, String>> results = new LinkedHashMap<String, Map<String, String>>();
-		results.put("ID", CodeGenerator.newFiled("ID", "ID"));
-		results.put("KEYWORD", CodeGenerator.newFiled("KEYWORD", "关键词/目录ID"));
-		results.put("CHANNEL", CodeGenerator.newFiled("CHANNEL", "平台"));
-		results.put("PAGE_TYPE", CodeGenerator.newFiled("PAGE_TYPE", "页面类型"));
-		results.put("MODULE_ID", CodeGenerator.newFiled("MODULE_ID", "模块ID"));
+		results.put("ID", CodeGenerator.newField("ID", "ID"));
+		results.put("KEYWORD", CodeGenerator.newField("KEYWORD", "关键词/目录ID"));
+		results.put("CHANNEL", CodeGenerator.newField("CHANNEL", "平台"));
+		results.put("PAGE_TYPE", CodeGenerator.newField("PAGE_TYPE", "页面类型"));
+		results.put("MODULE_ID", CodeGenerator.newField("MODULE_ID", "模块ID"));
 		results.put("SUBJECT",
-				CodeGenerator.newFiled("SUBJECT", "主题", "NOT_NULL"));
-		results.put("PARTNUMBER", CodeGenerator.newFiled("PARTNUMBER", "商品编码"));
+				CodeGenerator.newField("SUBJECT", "主题", "NOT_NULL"));
+		results.put("PARTNUMBER", CodeGenerator.newField("PARTNUMBER", "商品编码"));
 		results.put("SUPPLIER_CODE",
-				CodeGenerator.newFiled("SUPPLIER_CODE", "商家编码"));
+				CodeGenerator.newField("SUPPLIER_CODE", "商家编码"));
 		results.put("EXCEPTION_TIME",
-				CodeGenerator.newFiled("EXCEPTION_TIME", "异常发生时间", "TIME"));
+				CodeGenerator.newField("EXCEPTION_TIME", "异常发生时间", "TIME"));
 		results.put("DESCRIPTION",
-				CodeGenerator.newFiled("DESCRIPTION", "描述", "NOT_NULL"));
-		results.put("IMAGE_URL", CodeGenerator.newFiled("IMAGE_URL", "图片"));
+				CodeGenerator.newField("DESCRIPTION", "描述", "NOT_NULL"));
+		results.put("IMAGE_URL", CodeGenerator.newField("IMAGE_URL", "图片"));
 		results.put("STATUS",
-				CodeGenerator.newFiled("STATUS", "状态", "NOT_NULL"));
+				CodeGenerator.newField("STATUS", "状态", "NOT_NULL"));
 		results.put("CREATE_TIME",
-				CodeGenerator.newFiled("CREATE_TIME", "创建时间", "TIME"));
-		results.put("CREATE_USER", CodeGenerator.newFiled("CREATE_USER", "创建人"));
+				CodeGenerator.newField("CREATE_TIME", "创建时间", "TIME"));
+		results.put("CREATE_USER", CodeGenerator.newField("CREATE_USER", "创建人"));
 		results.put("AUDIT_TIME",
-				CodeGenerator.newFiled("AUDIT_TIME", "审核时间", "TIME"));
-		results.put("AUDIT_USER", CodeGenerator.newFiled("AUDIT_USER", "审核人"));
+				CodeGenerator.newField("AUDIT_TIME", "审核时间", "TIME"));
+		results.put("AUDIT_USER", CodeGenerator.newField("AUDIT_USER", "审核人"));
 		results.put("FEEDBACK_TIME",
-				CodeGenerator.newFiled("FEEDBACK_TIME", "反馈时间", "TIME"));
+				CodeGenerator.newField("FEEDBACK_TIME", "反馈时间", "TIME"));
 		results.put("FEEDBACK_USER",
-				CodeGenerator.newFiled("FEEDBACK_USER", "反馈人"));
+				CodeGenerator.newField("FEEDBACK_USER", "反馈人"));
 		results.put("CLOSE_TIME",
-				CodeGenerator.newFiled("CLOSE_TIME", "关闭时间", "TIME"));
-		results.put("CLOSE_USER", CodeGenerator.newFiled("CLOSE_USER", "关闭人"));
+				CodeGenerator.newField("CLOSE_TIME", "关闭时间", "TIME"));
+		results.put("CLOSE_USER", CodeGenerator.newField("CLOSE_USER", "关闭人"));
 		results.put("REOPEN_TIME",
-				CodeGenerator.newFiled("REOPEN_TIME", "重新打开时间", "TIME"));
+				CodeGenerator.newField("REOPEN_TIME", "重新打开时间", "TIME"));
 		results.put("REOPEN_USER",
-				CodeGenerator.newFiled("REOPEN_USER", "重新打开人"));
+				CodeGenerator.newField("REOPEN_USER", "重新打开人"));
 		return results;
 	}
 

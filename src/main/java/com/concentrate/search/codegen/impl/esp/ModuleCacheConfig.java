@@ -12,38 +12,38 @@ public class ModuleCacheConfig implements ModuleConfig {
 	@Override
 	public LinkedHashMap<String, Map<String, String>> getAllFileds() {
 		LinkedHashMap<String, Map<String, String>> results = new LinkedHashMap<String, Map<String, String>>();
-		results.put("ID", CodeGenerator.newFiled("ID", "ID"));
-		results.put("NAME", CodeGenerator.newFiled("NAME", "模块名", "NOT_NULL"));
+		results.put("ID", CodeGenerator.newField("ID", "ID"));
+		results.put("NAME", CodeGenerator.newField("NAME", "模块名", "NOT_NULL"));
 		results.put("FILE_PATH",
-				CodeGenerator.newFiled("FILE_PATH", "读取文件路径", "NOT_NULL"));
+				CodeGenerator.newField("FILE_PATH", "读取文件路径", "NOT_NULL"));
 		results.put("FIELDS_PATTERN",
-				CodeGenerator.newFiled("FIELDS_PATTERN", "属性模式", "NOT_NULL"));
+				CodeGenerator.newField("FIELDS_PATTERN", "属性模式", "NOT_NULL"));
 		results.put("SEPERATOR",
-				CodeGenerator.newFiled("SEPERATOR", "属性分隔符", "NOT_NULL"));
+				CodeGenerator.newField("SEPERATOR", "属性分隔符", "NOT_NULL"));
 		results.put("DTO_CLASSNAME",
-				CodeGenerator.newFiled("DTO_CLASSNAME", "DTO类名"));
+				CodeGenerator.newField("DTO_CLASSNAME", "DTO类名"));
 		results.put("CACHE_TYPE",
-				CodeGenerator.newFiled("CACHE_TYPE", "存储类型", "NOT_NULL"));
-		results.put("SINGLE_CACHE_INTERFACE", CodeGenerator.newFiled(
-				"SINGLE_CACHE_INTERFACE", "是否单个存储", "NOT_NULL"));
-		results.put("COLLECTION_CACHE_INTERFACE", CodeGenerator.newFiled(
-				"COLLECTION_CACHE_INTERFACE", "是否集合存储", "NOT_NULL"));
-		results.put("MAP_CACHE_INTERFACE", CodeGenerator.newFiled(
-				"MAP_CACHE_INTERFACE", "是否MAP存储", "NOT_NULL"));
+				CodeGenerator.newField("CACHE_TYPE", "存储类型", "NOT_NULL"));
+		results.put("SINGLE_CACHE_INTERFACE", CodeGenerator.newField(
+                "SINGLE_CACHE_INTERFACE", "是否单个存储", "NOT_NULL"));
+		results.put("COLLECTION_CACHE_INTERFACE", CodeGenerator.newField(
+                "COLLECTION_CACHE_INTERFACE", "是否集合存储", "NOT_NULL"));
+		results.put("MAP_CACHE_INTERFACE", CodeGenerator.newField(
+                "MAP_CACHE_INTERFACE", "是否MAP存储", "NOT_NULL"));
 		results.put("CACHE_CLASS",
-				CodeGenerator.newFiled("CACHE_CLASS", "存储类", "NOT_NULL"));
+				CodeGenerator.newField("CACHE_CLASS", "存储类", "NOT_NULL"));
 		results.put("CACHE_LIMIT",
-				CodeGenerator.newFiled("CACHE_LIMIT", "存储个数限制", "NOT_NULL"));
-		results.put("PREPARE_MASTER_URL", CodeGenerator.newFiled(
-				"PREPARE_MASTER_URL", "准备MASTER_URL", "NOT_NULL"));
+				CodeGenerator.newField("CACHE_LIMIT", "存储个数限制", "NOT_NULL"));
+		results.put("PREPARE_MASTER_URL", CodeGenerator.newField(
+                "PREPARE_MASTER_URL", "准备MASTER_URL", "NOT_NULL"));
 		results.put("CRONTAB_TIME",
-				CodeGenerator.newFiled("CRONTAB_TIME", "定时任务时间", "NOT_NULL"));
+				CodeGenerator.newField("CRONTAB_TIME", "定时任务时间", "NOT_NULL"));
 		results.put("UPDATE_USER",
-				CodeGenerator.newFiled("UPDATE_USER", "更新用户"));
+				CodeGenerator.newField("UPDATE_USER", "更新用户"));
 		results.put("CREATE_TIME",
-				CodeGenerator.newFiled("CREATE_TIME", "创建时间"));
+				CodeGenerator.newField("CREATE_TIME", "创建时间"));
 		results.put("UPDATE_TIME",
-				CodeGenerator.newFiled("UPDATE_TIME", "更新时间"));
+				CodeGenerator.newField("UPDATE_TIME", "更新时间"));
 		return results;
 	}
 

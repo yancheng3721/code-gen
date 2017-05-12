@@ -11,14 +11,14 @@ public class TmnPromotionConfig implements ModuleConfig {
 	@Override
 	public LinkedHashMap<String, Map<String, String>> getAllFileds() {
 		LinkedHashMap<String, Map<String, String>>  results = new LinkedHashMap<String, Map<String, String>>();
-		results.put("ID",CodeGenerator.newFiled("ID","ID"));
-		results.put("NAME",CodeGenerator.newFiled("NAME","名称","UNIQ","NOT_NULL"));
-		results.put("SOURCE",CodeGenerator.newFiled("SOURCE","源码","NOT_NULL"));
-		results.put("START_TIME",CodeGenerator.newFiled("START_TIME","开始时间","NOT_NULL","TIME"));
-		results.put("END_TIME",CodeGenerator.newFiled("END_TIME","结束时间","NOT_NULL","TIME"));
-		results.put("UPDATE_USER",CodeGenerator.newFiled("UPDATE_USER","更新用户"));
-		results.put("UPDATE_TIME",CodeGenerator.newFiled("UPDATE_TIME","更新时间"));
-		results.put("CREATE_TIME",CodeGenerator.newFiled("CREATE_TIME","创建时间"));
+		results.put("ID",CodeGenerator.newField("ID", "ID"));
+		results.put("NAME",CodeGenerator.newField("NAME", "名称", "UNIQ", "NOT_NULL"));
+		results.put("SOURCE",CodeGenerator.newField("SOURCE", "源码", "NOT_NULL"));
+		results.put("START_TIME",CodeGenerator.newField("START_TIME", "开始时间", "NOT_NULL", "TIME"));
+		results.put("END_TIME",CodeGenerator.newField("END_TIME", "结束时间", "NOT_NULL", "TIME"));
+		results.put("UPDATE_USER",CodeGenerator.newField("UPDATE_USER", "更新用户"));
+		results.put("UPDATE_TIME",CodeGenerator.newField("UPDATE_TIME", "更新时间"));
+		results.put("CREATE_TIME",CodeGenerator.newField("CREATE_TIME", "创建时间"));
 		return results;
 	}
 	@Override
