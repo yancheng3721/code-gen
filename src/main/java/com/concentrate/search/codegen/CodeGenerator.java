@@ -93,7 +93,7 @@ public class CodeGenerator {
 		ProjectInfo.PROJECT = "admin";
 		ProjectInfo.CONTEXT = "admin";
 		ProjectInfo.OVERWRITE = true;
-		ModuleConfig mc = new UserConfig();
+		ModuleConfig mc = new MenuConfig();
 		generateSingleModule(mc);
 	}
 

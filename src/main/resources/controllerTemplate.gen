@@ -34,10 +34,10 @@ import org.springframework.web.multipart.MultipartFile;
 import com.concentrate.search.admin.base.Base;
 import com.concentrate.search.admin.base.PageCond;
 import com.concentrate.search.admin.util.JSONUtil;
-import com.concentrate.search.admin.web.util.CsvReader;
-import com.concentrate.search.admin.web.util.ResponseBuilder;
-import com.concentrate.search.admin.web.vo.ResponseResult;
-import com.concentrate.search.admin.web.vo.UploadResult;
+import com.concentrate.search.admin.util.CsvReader;
+import com.concentrate.search.admin.util.ResponseBuilder;
+import com.concentrate.search.admin.vo.ResponseResult;
+import com.concentrate.search.admin.vo.UploadResult;
 import @packageService@.@upperHeadModule@Service;
 import @packageService@.selector.DropDownSelectService;
 
