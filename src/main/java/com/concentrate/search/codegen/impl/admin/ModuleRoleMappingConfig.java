@@ -30,11 +30,11 @@ public class ModuleRoleMappingConfig implements ModuleConfig {
 	public LinkedHashMap<String, Map<String, String>> getSelectFileds() {
 		LinkedHashMap<String, Map<String, String>> results = new LinkedHashMap<String, Map<String, String>>();
 		Map<String, String> role = new HashMap<String, String>();
-		role.put("ID,NAME", "SELECT ID,NAME FROM SHE_ROLE");
+		role.put("ID,NAME", "SELECT ID,NAME FROM T_ROLE");
 		results.put("ROLE_ID", role);
 
 		Map<String, String> module = new HashMap<String, String>();
-		module.put("ID,NAME", "SELECT ID,NAME FROM SHE_MODULE");
+		module.put("ID,NAME", "SELECT ID,NAME FROM T_MODULE");
 		results.put("MODULE_ID", module);
 
 		return results;
@@ -57,11 +57,11 @@ public class ModuleRoleMappingConfig implements ModuleConfig {
 		replacement.put("@packageService@",
 				"com.concentrate.search.admin.service.system");
 		replacement.put("@packageDao@", "com.concentrate.search.admin.dao.system");
-		replacement.put("@TBName@", "SHE_MODULE_ROLE_MAPPING");
+		replacement.put("@TBName@", "T_MODULE_ROLE_MAPPING");
 		replacement.put("@uniqKeys@", "MODULE_ID,ROLE_ID");
 		replacement
 				.put("@querySql@",
-						"SELECT A.MODULE_ID,B.NAME AS MODULE_NAME,A.ROLE_ID,C.NAME AS ROLE_NAME FROM SHE_MODULE_ROLE_MAPPING AS A LEFT JOIN SHE_MODULE AS B ON A.MODULE_ID = B.ID LEFT JOIN SHE_ROLE AS C ON C.ID = A.ROLE_ID;");
+						"SELECT A.MODULE_ID,B.NAME AS MODULE_NAME,A.ROLE_ID,C.NAME AS ROLE_NAME FROM T_MODULE_ROLE_MAPPING AS A LEFT JOIN T_MODULE AS B ON A.MODULE_ID = B.ID LEFT JOIN T_ROLE AS C ON C.ID = A.ROLE_ID;");
 
 		return replacement;
 	}

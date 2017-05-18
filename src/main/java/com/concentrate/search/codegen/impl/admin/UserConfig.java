@@ -34,7 +34,7 @@ public class UserConfig implements ModuleConfig {
 	public LinkedHashMap<String, Map<String, String>> getSelectFileds() {
 		LinkedHashMap<String, Map<String, String>> results = new LinkedHashMap<String, Map<String, String>>();
 		Map<String, String> cacheType = new HashMap<String, String>();
-		cacheType.put("ID,NAME", "SELECT ID,NAME FROM SHE_ROLE");
+		cacheType.put("ID,NAME", "SELECT ID,NAME FROM T_ROLE");
 		results.put("ROLE_ID", cacheType);
 		return results;
 	}
@@ -56,11 +56,11 @@ public class UserConfig implements ModuleConfig {
 		replacement.put("@packageService@",
 				"com.concentrate.search.admin.service.system");
 		replacement.put("@packageDao@", "com.concentrate.search.admin.dao.system");
-		replacement.put("@TBName@", "SHE_USER");
+		replacement.put("@TBName@", "T_USER");
 		replacement.put("@uniqKeys@", "NAME");
 		replacement
 				.put("@querySql@",
-						"SELECT A.ID,A.NAME,A.ALIAS,A.STATUS,B.NAME FROM SHE_USER AS A LEFT JOIN SHE_ROLE AS B ON A.ROLE_ID = B.ID");
+						"SELECT A.ID,A.NAME,A.ALIAS,A.STATUS,B.NAME FROM T_USER AS A LEFT JOIN T_ROLE AS B ON A.ROLE_ID = B.ID");
 
 		return replacement;
 	}

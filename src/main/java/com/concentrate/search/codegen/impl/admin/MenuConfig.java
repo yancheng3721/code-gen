@@ -31,7 +31,7 @@ public class MenuConfig implements ModuleConfig {
 	public LinkedHashMap<String, Map<String, String>> getSelectFileds() {
 		LinkedHashMap<String, Map<String, String>> results = new LinkedHashMap<String, Map<String, String>>();
 		Map<String, String> parent = new HashMap<String, String>();
-		parent.put("ID,NAME", "SELECT ID,NAME FROM SHE_MENU WHERE TYPE = '1'");
+		parent.put("ID,NAME", "SELECT ID,NAME FROM T_MENU WHERE TYPE = '1'");
 		results.put("PARENT_ID", parent);
 		return results;
 	}
@@ -57,11 +57,11 @@ public class MenuConfig implements ModuleConfig {
 		replacement.put("@packageService@",
 				"com.concentrate.search.admin.service.system");
 		replacement.put("@packageDao@", "com.concentrate.search.admin.dao.system");
-		replacement.put("@TBName@", "SHE_MENU");
+		replacement.put("@TBName@", "T_MENU");
 		replacement.put("@uniqKeys@", "NAME");
 		replacement
 				.put("@querySql@",
-						"SELECT A.ID,A.PARENT_ID,B.NAME AS PARENT_NAME,A.NAME,A.URL,A.TYPE FROM SHE_MENU AS A,SHE_MENU AS B WHERE A.PARENT_ID = B.ID");
+						"SELECT A.ID,A.PARENT_ID,B.NAME AS PARENT_NAME,A.NAME,A.URL,A.TYPE FROM T_MENU AS A,T_MENU AS B WHERE A.PARENT_ID = B.ID");
 
 		return replacement;
 	}

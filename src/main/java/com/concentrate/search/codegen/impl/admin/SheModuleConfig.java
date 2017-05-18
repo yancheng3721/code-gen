@@ -45,11 +45,11 @@ public class SheModuleConfig implements ModuleConfig {
 		replacement.put("@packageService@",
 				"com.concentrate.search.admin.service.system");
 		replacement.put("@packageDao@", "com.concentrate.search.admin.dao.system");
-		replacement.put("@TBName@", "SHE_MODULE");
+		replacement.put("@TBName@", "T_MODULE");
 		replacement.put("@uniqKeys@", "NAME");
 		replacement
 				.put("@querySql@",
-						"SELECT ID,NAME FROM SHE_MODULE");
+						"SELECT ID,NAME FROM T_MODULE");
 
 		return replacement;
 	}

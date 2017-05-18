@@ -46,11 +46,11 @@ public class RoleMenuMappingConfig implements ModuleConfig {
 		replacement.put("@packageService@",
 				"com.concentrate.search.admin.service.system");
 		replacement.put("@packageDao@", "com.concentrate.search.admin.dao.system");
-		replacement.put("@TBName@", "SHE_ROLE_MENU_MAPPING");
+		replacement.put("@TBName@", "T_ROLE_MENU_MAPPING");
 		replacement.put("@uniqKeys@", "ROLE_ID,MENU_ID");
 		replacement
 				.put("@querySql@",
-						"SELECT A.ROLE_ID,B.NAME AS ROLE_NAME,A.MENU_ID,C.NAME AS MENU_NAME FROM SHE_ROLE_MENU_MAPPING AS A LEFT JOIN SHE_ROLE AS B ON B.ID = A.ROLE_ID LEFT JOIN SHE_MENU AS C ON C.ID = A.MENU_ID");
+						"SELECT A.ROLE_ID,B.NAME AS ROLE_NAME,A.MENU_ID,C.NAME AS MENU_NAME FROM T_ROLE_MENU_MAPPING AS A LEFT JOIN T_ROLE AS B ON B.ID = A.ROLE_ID LEFT JOIN T_MENU AS C ON C.ID = A.MENU_ID");
 
 		return replacement;
 	}

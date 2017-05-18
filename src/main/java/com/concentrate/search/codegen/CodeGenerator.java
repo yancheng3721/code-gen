@@ -93,8 +93,15 @@ public class CodeGenerator {
 		ProjectInfo.PROJECT = "admin";
 		ProjectInfo.CONTEXT = "admin";
 		ProjectInfo.OVERWRITE = true;
-		ModuleConfig mc = new MenuConfig();
-		generateSingleModule(mc);
+        ModuleConfig mc;
+		mc = new MenuConfig();generateSingleModule(mc);
+        mc = new ModuleRoleMappingConfig();generateSingleModule(mc);
+        mc = new RoleConfig();generateSingleModule(mc);
+        mc = new RoleMenuMappingConfig();generateSingleModule(mc);
+        mc = new SheModuleConfig();generateSingleModule(mc);
+        mc = new UserConfig();generateSingleModule(mc);
+
+
 	}
 
 	public static void generateSingleModule(ModuleConfig mc) throws IOException {

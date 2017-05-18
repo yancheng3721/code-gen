@@ -45,11 +45,11 @@ public class RoleConfig implements ModuleConfig {
 		replacement.put("@packageService@",
 				"com.concentrate.search.admin.service.system");
 		replacement.put("@packageDao@", "com.concentrate.search.admin.dao.system");
-		replacement.put("@TBName@", "SHE_ROLE");
+		replacement.put("@TBName@", "T_ROLE");
 		replacement.put("@uniqKeys@", "NAME");
 		replacement
 				.put("@querySql@",
-						"SELECT ID,NAME FROM SHE_ROLE");
+						"SELECT ID,NAME FROM T_ROLE");
 
 		return replacement;
 	}
