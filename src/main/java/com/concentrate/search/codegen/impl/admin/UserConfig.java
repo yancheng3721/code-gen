@@ -8,8 +8,22 @@ import com.concentrate.search.codegen.CodeGenerator;
 import com.concentrate.search.codegen.ModuleConfig;
 
 public class UserConfig implements ModuleConfig {
-
-	@Override
+    /*
+       drop table if exists T_USER;
+       create table T_USER
+               (
+                       ID                   bigint not null auto_increment,
+                       PASSWORD             varchar(120) not null,
+       STATUS               smallint not null,
+       ALIAS                varchar(120) not null,
+       NAME                 varchar(120) not null,
+       CREATE_TIME          timestamp not null,
+       UPDATE_TIME          timestamp not null,
+       UPDATE_USER          varchar(60),
+       primary key (ID)
+       );
+   */
+    @Override
 	public LinkedHashMap<String, Map<String, String>> getAllFileds() {
 		LinkedHashMap<String, Map<String, String>> results = new LinkedHashMap<String, Map<String, String>>();
 		results.put("ID", CodeGenerator.newField("ID", "ID"));
@@ -17,8 +31,6 @@ public class UserConfig implements ModuleConfig {
 		results.put("ALIAS", CodeGenerator.newField("ALIAS", "别名"));
 		results.put("PASSWORD",
 				CodeGenerator.newField("PASSWORD", "密码", "NOT_NULL"));
-		results.put("ROLE_ID",
-				CodeGenerator.newField("ROLE_ID", "角色ID", "NOT_NULL"));
 		results.put("STATUS",
 				CodeGenerator.newField("STATUS", "账号状态", "NOT_NULL"));
 		results.put("UPDATE_USER",
