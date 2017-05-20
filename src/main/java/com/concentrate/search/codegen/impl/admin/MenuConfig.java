@@ -50,7 +50,9 @@ public class MenuConfig implements ModuleConfig {
 	public LinkedHashMap<String, String> getAllReplaceMent() {
 		LinkedHashMap<String, String> replacement = new LinkedHashMap<String, String>();
 		replacement.put("@module@", "menu");
-		replacement.put("@upperHeadModule@", "Menu");
+        replacement.put("@package@", "com.concentrate.search.admin");
+
+        replacement.put("@upperHeadModule@", "Menu");
 		replacement.put("@moduleCN@", "菜单");
 		replacement.put("@packageController@",
 				"com.concentrate.search.admin.controller.system");

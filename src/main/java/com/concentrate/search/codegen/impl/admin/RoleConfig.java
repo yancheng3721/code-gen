@@ -38,7 +38,8 @@ public class RoleConfig implements ModuleConfig {
 	public LinkedHashMap<String, String> getAllReplaceMent() {
 		LinkedHashMap<String, String> replacement = new LinkedHashMap<String, String>();
 		replacement.put("@module@", "role");
-		replacement.put("@upperHeadModule@", "Role");
+        replacement.put("@package@", "com.concentrate.search.admin");
+        replacement.put("@upperHeadModule@", "Role");
 		replacement.put("@moduleCN@", "角色管理");
 		replacement.put("@packageController@",
 				"com.concentrate.search.admin.controller.system");

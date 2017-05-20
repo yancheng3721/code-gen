@@ -39,7 +39,9 @@ public class RoleMenuMappingConfig implements ModuleConfig {
 	public LinkedHashMap<String, String> getAllReplaceMent() {
 		LinkedHashMap<String, String> replacement = new LinkedHashMap<String, String>();
 		replacement.put("@module@", "roleMenuMapping");
-		replacement.put("@upperHeadModule@", "RoleMenuMapping");
+        replacement.put("@package@", "com.concentrate.search.admin");
+
+        replacement.put("@upperHeadModule@", "RoleMenuMapping");
 		replacement.put("@moduleCN@", "角色菜单权限");
 		replacement.put("@packageController@",
 				"com.concentrate.search.admin.controller.system");

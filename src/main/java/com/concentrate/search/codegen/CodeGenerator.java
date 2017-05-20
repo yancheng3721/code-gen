@@ -104,6 +104,10 @@ public class CodeGenerator {
 
 	}
 
+    public static void generateByProjectConfig(ProjectConfig pc,ModuleConfig mc){
+
+    }
+
 	public static void generateSingleModule(ModuleConfig mc) throws IOException {
 
 		// mc.getAllReplaceMent();

@@ -6,8 +6,10 @@ import java.util.Map;
 
 import com.concentrate.search.codegen.CodeGenerator;
 import com.concentrate.search.codegen.ModuleConfig;
+import com.concentrate.search.codegen.ProjectConfig;
 
 public class UserConfig implements ModuleConfig {
+
     /*
        drop table if exists T_USER;
        create table T_USER
@@ -48,7 +50,7 @@ public class UserConfig implements ModuleConfig {
 		Map<String, String> cacheType = new HashMap<String, String>();
 		cacheType.put("ID,NAME", "SELECT ID,NAME FROM T_ROLE");
 		results.put("ROLE_ID", cacheType);
-		return results;
+		return null;
 	}
 
 	@Override
@@ -60,8 +62,9 @@ public class UserConfig implements ModuleConfig {
 	@Override
 	public LinkedHashMap<String, String> getAllReplaceMent() {
 		LinkedHashMap<String, String> replacement = new LinkedHashMap<String, String>();
-		replacement.put("@module@", "user");
-		replacement.put("@upperHeadModule@", "User");
+        replacement.put("@module@", "user");
+        replacement.put("@package@", "com.concentrate.search.admin");
+        replacement.put("@upperHeadModule@", "User");
 		replacement.put("@moduleCN@", "用户管理");
 		replacement.put("@packageController@",
 				"com.concentrate.search.admin.controller.system");
@@ -72,7 +75,7 @@ public class UserConfig implements ModuleConfig {
 		replacement.put("@uniqKeys@", "NAME");
 		replacement
 				.put("@querySql@",
-						"SELECT A.ID,A.NAME,A.ALIAS,A.STATUS,B.NAME FROM T_USER AS A LEFT JOIN T_ROLE AS B ON A.ROLE_ID = B.ID");
+						"SELECT A.ID,A.NAME,A.ALIAS,A.STATUS FROM T_USER AS A ORDER BY A.NAME");
 
 		return replacement;
 	}
@@ -89,7 +92,7 @@ public class UserConfig implements ModuleConfig {
 
 	@Override
 	public String getSaveFields() {
-		return "NAME,ALIAS,PASSWORD,ROLE_ID,STATUS";
+		return "NAME,ALIAS,PASSWORD,STATUS";
 	}
 
 	@Override
@@ -99,7 +102,7 @@ public class UserConfig implements ModuleConfig {
 
 	@Override
 	public String getImportFields() {
-		return "NAME,ALIAS,PASSWORD,ROLE_ID,STATUS";
+		return "NAME,ALIAS,PASSWORD,STATUS";
 	}
 
 	@Override

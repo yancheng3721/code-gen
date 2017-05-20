@@ -38,7 +38,8 @@ public class SheModuleConfig implements ModuleConfig {
 	public LinkedHashMap<String, String> getAllReplaceMent() {
 		LinkedHashMap<String, String> replacement = new LinkedHashMap<String, String>();
 		replacement.put("@module@", "module");
-		replacement.put("@upperHeadModule@", "Module");
+        replacement.put("@package@", "com.concentrate.search.admin");
+        replacement.put("@upperHeadModule@", "Module");
 		replacement.put("@moduleCN@", "模块");
 		replacement.put("@packageController@",
 				"com.concentrate.search.admin.controller.system");
