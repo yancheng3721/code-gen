@@ -7,6 +7,8 @@ import java.util.Map;
  * Created by admin on 2017/5/20.
  */
 public interface BeanModuleConfig {
+    LinkedHashMap<String,Map<String,String>> getDefaultFields();
+
     LinkedHashMap<String,Map<String,String>> getAllFileds();
 
     LinkedHashMap<String,Map<String,String>> getSelectFileds();//下拉框的值不固定

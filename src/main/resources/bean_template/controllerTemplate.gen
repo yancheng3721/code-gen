@@ -45,7 +45,7 @@ import com.@org@.@system@.@project@.service.selector.DropDownSelectService;
 @Controller
 public class @upperHeadModule@Controller {
 
-	public static final String MAIN_PAGE = "/@module@/manage@upperHeadModule@";
+	public static final String MAIN_PAGE = "/@package@/manage@upperHeadModule@";
 	
 	private static Logger logger = LoggerFactory
 			.getLogger(@upperHeadModule@Controller.class);

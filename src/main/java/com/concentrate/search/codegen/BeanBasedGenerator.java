@@ -1,8 +1,7 @@
 package com.concentrate.search.codegen;
 
 import com.concentrate.search.codegen.beanImpl.BaseModule;
-import com.concentrate.search.codegen.beanImpl.admin.AdminProject;
-import com.concentrate.search.codegen.beanImpl.admin.UserConfig;
+import com.concentrate.search.codegen.beanImpl.admin.*;
 import com.concentrate.search.codegen.util.JSONUtil;
 import org.apache.commons.io.FileUtils;
 
@@ -21,8 +20,17 @@ public class BeanBasedGenerator {
     static boolean OVERWRITE = true;
     public static void main(String[] args) throws IOException {
         ProjectConfig pc = new AdminProject();
-        BaseModule bm = new UserConfig(pc);
-        generateSingleModule(bm);
+        BaseModule user = new UserConfig(pc);
+        generateSingleModule(user);
+        BaseModule role = new RoleConfig(pc);
+        generateSingleModule(role);
+        BaseModule menu = new MenuConfig(pc);
+        generateSingleModule(menu);
+        BaseModule resource = new ResourceConfig(pc);
+        generateSingleModule(resource);
+        BaseModule module = new SysModuleConfig(pc);
+        generateSingleModule(module);
+
     }
 
     public static void generateByProjectConfig(BaseModule mc) throws IOException {
@@ -33,6 +41,7 @@ public class BeanBasedGenerator {
     public static void generateSingleModule(BeanModuleConfig mc) throws IOException {
         // mc.getAllReplaceMent();
         LinkedHashMap<String, Map<String, String>> fields = mc.getAllFileds();
+        fields.putAll(mc.getDefaultFields());
         Map<String, String> replacement = mc.getAllReplaceMent();
         replacement.put("@allFieldsStr@",
                 JSONUtil.toJSONString(fields.values(), ""));
@@ -242,7 +251,7 @@ public class BeanBasedGenerator {
         File f = createFile(
                 mc.getProjectConfig().getWorkspace() + "/" + mc.getProjectConfig().getProject() + "/"
                         + mc.getProjectConfig().getViewHome() + "/"
-                        + replacement.get("@module@"),
+                        + mc.getPackage(),
                 "manage" + replacement.get("@upperHeadModule@") + ".ftl");
         String s = FileUtils
                 .readFileToString(
@@ -465,12 +474,8 @@ public class BeanBasedGenerator {
                             + "' id='searchbox."
                             + v.get("_KEY_")
                             + "'>\r\n\t"
-                            + "<option value=''>选择"
-                            + v.get("_CN_")
-                            + "</option>\r\n\t"
-                            + "<#if "
-                            + v.get("_KEY_")
-                            + "Select??>\r\n<#list "
+                            + "<option value=''>选择"+ v.get("_CN_")+ "</option>\r\n\t"
+                            + "<#if "+ v.get("_KEY_") + "Select??>\r\n<#list "
                             + v.get("_KEY_")
                             + "Select?keys as key>"
                             + "\r\n<#if searchbox[\""
@@ -494,9 +499,7 @@ public class BeanBasedGenerator {
                     Set<String> keySet = mm.keySet();
                     for (String key : keySet) {
                         td = td + "<option value='" + key
-                                + "' <#if searchbox[\"" + v.get("_KEY_")
-                                + "\"] ==\'" + key
-                                + "\'> selected='selected'</#if>>"
+                                + "' <#if searchbox[\"" + v.get("_KEY_") + "\"] ==\'" + key+ "\'> selected='selected'</#if>>"
                                 + mm.get(key) + "</option>\r\n";
                     }
                     td = td + "</select>\r\n</td>\r\n";

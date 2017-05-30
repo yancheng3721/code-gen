@@ -7,30 +7,29 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
+ * create table T_MODULE
+ (
+ ID                   bigint not null auto_increment,
+ CODE                 varchar(120) not null,
+ NAME                 varchar(120) not null,
+ CREATE_TIME          timestamp not null,
+ UPDATE_TIME          timestamp not null,
+ UPDATE_USER          varchar(60),
+ primary key (ID)
+ );
  * Created by admin on 2017/5/20.
  */
-public class UserConfig extends BaseModule {
+public class SysModuleConfig extends BaseModule {
 
-    public UserConfig(ProjectConfig projectConfig) {
+    public SysModuleConfig(ProjectConfig projectConfig) {
         super(projectConfig);
     }
 
     @Override
     public LinkedHashMap<String, Map<String, String>> getAllFileds() {
         LinkedHashMap<String, Map<String, String>> results = new LinkedHashMap<String, Map<String, String>>();
-        results.put("ID", newField("ID", "ID"));
-        results.put("NAME", newField("NAME", "用户名", "NOT_NULL"));
-        results.put("ALIAS", newField("ALIAS", "别名"));
-        results.put("PASSWORD",
-                newField("PASSWORD", "密码", "NOT_NULL"));
-        results.put("STATUS",
-                newField("STATUS", "账号状态", "NOT_NULL"));
-        results.put("UPDATE_USER",
-                newField("UPDATE_USER", "更新用户"));
-        results.put("CREATE_TIME",
-                newField("CREATE_TIME", "创建时间"));
-        results.put("UPDATE_TIME",
-                newField("UPDATE_TIME", "更新时间"));
+        results.put("NAME", newField("NAME", "模块名", "NOT_NULL"));
+        results.put("CODE", newField("CODE", "模块编码", "NOT_NULL"));
         return results;
     }
 
@@ -41,37 +40,32 @@ public class UserConfig extends BaseModule {
 
     @Override
     public LinkedHashMap<String, Map<String, String>> getFixedSelectFileds() {
-        LinkedHashMap<String, Map<String, String>> result = new LinkedHashMap<String, Map<String, String>>();
-        Map<String, String> status = new LinkedHashMap<String,String>();
-        result.put("STATUS",status);
-        status.put("0","无效");
-        status.put("1","有效");
-        return result;
+        return null;
     }
 
     @Override
     public String getSearchFileds() {
-        return "NAME,ALIAS,STATUS";
+        return "NAME,CODE";
     }
 
     @Override
     public String getViewFields() {
-        return "NAME,ALIAS,STATUS,CREATE_TIME,UPDATE_TIME,UPDATE_USER";
+        return "NAME,CODE,CREATE_TIME,UPDATE_TIME,UPDATE_USER";
     }
 
     @Override
     public String getSaveFields() {
-        return "NAME,ALIAS,PASSWORD,STATUS";
+        return "NAME,CODE";
     }
 
     @Override
     public String getExportFields() {
-        return "NAME,ALIAS,STATUS";
+        return "NAME,CODE";
     }
 
     @Override
     public String getImportFields() {
-        return "NAME,ALIAS,PASSWORD,STATUS";
+        return "NAME,CODE";
     }
 
     @Override
@@ -90,17 +84,17 @@ public class UserConfig extends BaseModule {
 
     @Override
     public String getModule() {
-        return "user";
+        return "module";
     }
 
     @Override
     public String getModuleCN() {
-        return "用户";
+        return "模块";
     }
 
     @Override
     public String getTableName() {
-        return "T_USER";
+        return "T_MODULE";
     }
 
     @Override
@@ -111,6 +105,6 @@ public class UserConfig extends BaseModule {
     @Override
     public String getQuerySql() {
         //"NAME,ALIAS,STATUS,CREATE_TIME,UPDATE_TIME,UPDATE_USER"
-        return "SELECT ID,NAME,ALIAS,STATUS,CREATE_TIME,UPDATE_TIME,UPDATE_USER FROM T_USER";
+        return "SELECT ID,NAME,CODE,CREATE_TIME,UPDATE_TIME,UPDATE_USER FROM T_MODULE";
     }
 }

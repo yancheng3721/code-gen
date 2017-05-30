@@ -587,11 +587,9 @@ public class CodeGenerator {
 							+ "Select[key]}</option>\r\n</#if></#list></#if>\r\n\t</select>\r\n</td>\r\n";
 				} else if (mc.getFixedSelectFileds() != null
 						&& mc.getFixedSelectFileds().get(e.getKey()) != null) {
-					td = "<td class='tdName'>"
-							+ v.get("_CN_")
-							+ "：</td>\r\n<td> <select style='width:140px;height:22px;' class='searchbox.'  name='searchbox."
-							+ v.get("_KEY_") + "' id='searchbox."
-							+ v.get("_KEY_") + "'>\r\n\t ";
+					td = "<td class='tdName'>"+ v.get("_CN_")+ "：</td>\r\n<td> " +
+                            "<select style='width:140px;height:22px;' class='searchbox.'  " +
+                            "name='searchbox."+ v.get("_KEY_") + "' id='searchbox."+ v.get("_KEY_") + "'>\r\n\t ";
 					Map<String, String> mm = mc.getFixedSelectFileds().get(
 							e.getKey());
 					Set<String> keySet = mm.keySet();

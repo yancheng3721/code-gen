@@ -7,11 +7,25 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
+ * create table T_RESOURCE
+ (
+ ID                   bigint not null auto_increment,
+ MENU_ID              bigint not null,
+ NAME                 varchar(120) not null,
+ CODE                 varchar(120) not null,
+ ACTION               varchar(1000),
+ REMARK               varchar(2000),
+ CREATE_TIME          timestamp not null,
+ UPDATE_TIME          timestamp not null,
+ UPDATE_USER          varchar(60),
+ primary key (ID)
+ );
+
  * Created by admin on 2017/5/20.
  */
-public class UserConfig extends BaseModule {
+public class ResourceConfig extends BaseModule {
 
-    public UserConfig(ProjectConfig projectConfig) {
+    public ResourceConfig(ProjectConfig projectConfig) {
         super(projectConfig);
     }
 
@@ -19,12 +33,14 @@ public class UserConfig extends BaseModule {
     public LinkedHashMap<String, Map<String, String>> getAllFileds() {
         LinkedHashMap<String, Map<String, String>> results = new LinkedHashMap<String, Map<String, String>>();
         results.put("ID", newField("ID", "ID"));
-        results.put("NAME", newField("NAME", "用户名", "NOT_NULL"));
-        results.put("ALIAS", newField("ALIAS", "别名"));
-        results.put("PASSWORD",
-                newField("PASSWORD", "密码", "NOT_NULL"));
-        results.put("STATUS",
-                newField("STATUS", "账号状态", "NOT_NULL"));
+        results.put("MENU_ID", newField("MENU_ID", "菜单ID"));
+        results.put("MENU_NAME", newField("MENU_NAME", "菜单名称"));
+        results.put("NAME", newField("NAME", "资源名称", "NOT_NULL"));
+        results.put("CODE", newField("CODE", "资源编码", "NOT_NULL"));
+        results.put("ACTION",
+                newField("ACTION", "资源链接", "NOT_NULL"));
+        results.put("REMARK",
+                newField("REMARK", "备注", "NOT_NULL"));
         results.put("UPDATE_USER",
                 newField("UPDATE_USER", "更新用户"));
         results.put("CREATE_TIME",
@@ -41,37 +57,32 @@ public class UserConfig extends BaseModule {
 
     @Override
     public LinkedHashMap<String, Map<String, String>> getFixedSelectFileds() {
-        LinkedHashMap<String, Map<String, String>> result = new LinkedHashMap<String, Map<String, String>>();
-        Map<String, String> status = new LinkedHashMap<String,String>();
-        result.put("STATUS",status);
-        status.put("0","无效");
-        status.put("1","有效");
-        return result;
+        return null;
     }
 
     @Override
     public String getSearchFileds() {
-        return "NAME,ALIAS,STATUS";
+        return "NAME,CODE,ACTION,REMARK";
     }
 
     @Override
     public String getViewFields() {
-        return "NAME,ALIAS,STATUS,CREATE_TIME,UPDATE_TIME,UPDATE_USER";
+        return "NAME,CODE,ACTION,REMARK,CREATE_TIME,UPDATE_TIME,UPDATE_USER";
     }
 
     @Override
     public String getSaveFields() {
-        return "NAME,ALIAS,PASSWORD,STATUS";
+        return "NAME,MENU_ID,CODE,ACTION,REMARK";
     }
 
     @Override
     public String getExportFields() {
-        return "NAME,ALIAS,STATUS";
+        return "NAME,MENU_ID,MENU_NAME,CODE,ACTION,REMARK,CREATE_TIME,UPDATE_TIME,UPDATE_USER";
     }
 
     @Override
     public String getImportFields() {
-        return "NAME,ALIAS,PASSWORD,STATUS";
+        return "NAME,MENU_ID,CODE,ACTION,REMARK";
     }
 
     @Override
@@ -90,17 +101,17 @@ public class UserConfig extends BaseModule {
 
     @Override
     public String getModule() {
-        return "user";
+        return "resource";
     }
 
     @Override
     public String getModuleCN() {
-        return "用户";
+        return "资源";
     }
 
     @Override
     public String getTableName() {
-        return "T_USER";
+        return "T_RESOURCE";
     }
 
     @Override
@@ -108,9 +119,22 @@ public class UserConfig extends BaseModule {
         return "NAME";
     }
 
+
+    /**
+     *  ID                   bigint not null auto_increment,
+     MENU_ID              bigint not null,
+     NAME                 varchar(120) not null,
+     CODE                 varchar(120) not null,
+     ACTION               varchar(1000),
+     REMARK               varchar(2000),
+     CREATE_TIME          timestamp not null,
+     UPDATE_TIME          timestamp not null,
+     UPDATE_USER          varchar(60),
+     * @return
+     */
     @Override
     public String getQuerySql() {
         //"NAME,ALIAS,STATUS,CREATE_TIME,UPDATE_TIME,UPDATE_USER"
-        return "SELECT ID,NAME,ALIAS,STATUS,CREATE_TIME,UPDATE_TIME,UPDATE_USER FROM T_USER";
+        return "SELECT A.NAME,A.MENU_ID,A.CODE,A.ACTION,A.REMARK,A.CREATE_TIME,A.UPDATE_TIME,A.UPDATE_USER,B.NAME AS MENU_NAME FROM T_RESOURCE A LEFT JOIN T_MENU B ON A.MENU_ID=B.ID";
     }
 }
