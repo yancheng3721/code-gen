@@ -44,7 +44,7 @@ if('${_msg}'!=null&&'${_msg}'!=""){
 			
 			<div class="searchCenter">
 				
-				<input type="hidden" name="__querySql" value="@QuerySql@"/>
+				<input type="hidden" name="__selectorName" value="@SelectorName@"/>
 				<input type="hidden" name="module" value="@SelectorName@"/>
 				
 				<table width="100%" class="searTabBg">

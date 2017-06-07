@@ -79,7 +79,7 @@ public class SelectorGenerater {
 
 	public static void makeSelectorFtl(Map<String, String> replacement, SelectorConfig mc) throws IOException {
 		File f = createFile(mc.getProjectInfo().getWorkspace()+"/"+mc.getProjectInfo().getProject()+"/"+mc.getProjectInfo().getViewHome()+"/selector",mc.getSelectorName()+".ftl");
-		String s = FileUtils.readFileToString(new File(CodeGenerator.class.getClassLoader().getResource("selector.gen").getFile()), "utf-8");
+		String s = FileUtils.readFileToString(new File(CodeGenerator.class.getClassLoader().getResource("bean_template/selector.gen").getFile()), "utf-8");
 		if(replacement!=null&&replacement.size()>0){
 			for(Map.Entry<String, String> e:replacement.entrySet()){
 				String k = e.getKey();
