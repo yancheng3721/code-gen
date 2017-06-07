@@ -1,5 +1,7 @@
 package com.concentrate.search.codegen.selector;
 
+import com.concentrate.search.codegen.ProjectConfig;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -11,6 +13,7 @@ import java.util.Map;
  */
 public interface SelectorConfig {
 
+    public ProjectConfig getProjectInfo();
 	/**
 		@QuerySql@
 		@UpperHeadSelectorName@
@@ -26,13 +29,18 @@ public interface SelectorConfig {
 	 * @return
 	 */
 	LinkedHashMap<String,Map<String,String>>getAllFileds();
-	
-	LinkedHashMap<String,String> getAllReplaceMent();
-	
-	String getReturnFileds();
+
+    LinkedHashMap<String, String> getAllReplaceMent();
+
+    String getReturnFileds();
 	
 	String getSearchFileds();
 	
 	String getViewFields();
-	
+
+    String getSelectorName();
+
+    String getSelectorCNName();
+
+    String getQuerySql();
 }

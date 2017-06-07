@@ -7,11 +7,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import com.concentrate.search.codegen.selector.impl.FullPathDirSelector;
 import org.apache.commons.io.FileUtils;
 
 import com.concentrate.search.codegen.CodeGenerator;
-import com.concentrate.search.codegen.ProjectInfo;
 
 public class SelectorGenerater {
 
@@ -30,26 +28,18 @@ public class SelectorGenerater {
 		
 	*/
 	public static void main(String[] args) throws IOException {
-		ProjectInfo.WORKSPACE = "f:/develop/github/";
-		ProjectInfo.PROJECT = "admin";
-		ProjectInfo.CONTEXT = "admin";
-		ProjectInfo.OVERWRITE=true;
-		SelectorConfig mc = new FullPathDirSelector();
-		generateSelector(mc);
+
 	}
 	
 	private static void generateSelector(SelectorConfig mc) throws IOException {
 
-		mc.getAllReplaceMent();
 		LinkedHashMap<String,Map<String,String>> fields = mc.getAllFileds();
-		Map<String,String> replacement = mc.getAllReplaceMent();
-		 
-		replacement.put("@searchBoxTr@",generateBox(copyFileds(fields,mc.getSearchFileds())));
-		replacement.put("@listTH@",generateTH(copyFileds(fields,mc.getViewFields())));
-		replacement.put("@listTD@",generateTD(copyFileds(fields,mc.getViewFields())));
-		replacement.put("@returnArrayStr@",generateRetrunAry(copyFileds(fields,mc.getReturnFileds())));
-		replacement.put("@context@", ProjectInfo.CONTEXT);
-		makeSelectorFtl(replacement);
+        LinkedHashMap<String,String> replacement = mc.getAllReplaceMent();
+        replacement.put("@searchBoxTr@",generateBox(copyFileds(fields,mc.getSearchFileds())));
+        replacement.put("@listTH@",generateTH(copyFileds(fields,mc.getViewFields())));
+        replacement.put("@listTD@",generateTD(copyFileds(fields,mc.getViewFields())));
+        replacement.put("@returnArrayStr@",generateRetrunAry(copyFileds(fields,mc.getReturnFileds())));
+		makeSelectorFtl(replacement,mc);
 
 	}
 
@@ -87,8 +77,8 @@ public class SelectorGenerater {
 
 
 
-	public static void makeSelectorFtl(Map<String, String> replacement) throws IOException {
-		File f = createFile(ProjectInfo.WORKSPACE+"/"+ProjectInfo.PROJECT+"/"+ProjectInfo.FREEMARKER_SOURCE_HOME+"/selector",replacement.get("@SelectorName@")+".ftl");
+	public static void makeSelectorFtl(Map<String, String> replacement, SelectorConfig mc) throws IOException {
+		File f = createFile(mc.getProjectInfo().getWorkspace()+"/"+mc.getProjectInfo().getProject()+"/"+mc.getProjectInfo().getViewHome()+"/selector",mc.getSelectorName()+".ftl");
 		String s = FileUtils.readFileToString(new File(CodeGenerator.class.getClassLoader().getResource("selector.gen").getFile()), "utf-8");
 		if(replacement!=null&&replacement.size()>0){
 			for(Map.Entry<String, String> e:replacement.entrySet()){
