@@ -26,6 +26,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -61,10 +62,15 @@ public class @upperHeadModule@Controller {
 			@RequestParam(required = false) Map<String, Object> context,
 			ModelMap map) {
 		PageCond page = getPageFromContext(context);
-		Map<String, String> param = getParamFromContext(context, "searchbox.");
-		map.put("objs", service.query(param, page));
-		map.put("page", page);
-		map.put("searchbox", param);
+        Map<String, String> param = getParamFromContext(context, "searchbox.");
+        Map<String, String> defaultbox = getParamFromContext(context, "defaultbox.");
+        if(defaultbox!=null){
+            param.putAll(defaultbox);
+        }
+        map.put("objs", service.query(param, page));
+        map.put("page", page);
+        map.put("searchbox", param);
+        map.put("defaultbox", defaultbox);
 		@dropDownSelect@
 		return MAIN_PAGE;
 	}
@@ -75,10 +81,15 @@ public class @upperHeadModule@Controller {
 			ModelMap map) {
 		PageCond page = getPageFromContext(context);
 		Map<String, String> param = getParamFromContext(context, "searchbox.");
+        Map<String, String> defaultbox = getParamFromContext(context, "defaultbox.");
+        if(defaultbox!=null){
+            param.putAll(defaultbox);
+        }
 		map.put("objs", service.query(param, page));
 		map.put("page", page);
 		map.put("searchbox", param);
-		@dropDownSelect@
+		map.put("defaultbox", defaultbox);
+        @dropDownSelect@
 		return MAIN_PAGE;
 	}
 
@@ -114,9 +125,13 @@ public class @upperHeadModule@Controller {
 
 	@RequestMapping("/@module@/save@upperHeadModule@")
 	public void save(HttpServletRequest request, HttpServletResponse response,
-			@RequestParam(required = false) Map<String, Object> context,
-			ModelMap map) {
-		Map<String, String> param = getParamFromContext(context, "");
+    			@RequestBody Map<String, Object> context,
+    			ModelMap map) {
+        Map<String, String> param = (Map<String, String>) context.get("savebox");
+        Map<String, String> defaultbox = (Map<String, String>) context.get("defaultbox");
+        if(defaultbox!=null){
+            param.putAll(defaultbox);
+        }
 		String user = request.getSession().getAttribute("user").toString();
 		param.put(Base.UPDATE_USER, user);
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

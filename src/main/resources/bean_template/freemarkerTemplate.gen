@@ -36,14 +36,20 @@ $(function() {
 	//弹出保存框
 	function showSave(obj){
 		//alert(obj);
+		if(!obj){
+            obj = new Object();
+        }
+        $(".defaultbox").each(function(index,ele){
+                var field = getField('defaultbox.',this.name);
+                obj[field]= $.trim(this.value);
+            });
+
 		$(".savebox").each(function(index,ele){
 				if(ele.getAttribute("id")!="saveboxTYPE"){
 					ele.value='';
 				}
 			});
-		$(".showbox").each(function(index,ele){
-				ele.value='';
-			});
+
 		var modify=false;
 		if(obj){
 			if(obj.ID){
@@ -153,12 +159,18 @@ $(function() {
     //AJAX保存
 	function doSave(){
 		var params = new Object();
-		var htmObjs = $(".savebox").each(function(index,ele){
-				var field = getField('savebox',this.name);
-				params[field]= $.trim(this.value);
-			});
-		
-		if(!checkValid(params)){
+        params.savebox=new Object();
+        params.defaultbox=new Object();
+        $(".savebox").each(function(index,ele){
+                var field = getField('savebox',this.name);
+                params.savebox[field]= $.trim(this.value);
+            });
+        $(".defaultbox").each(function(index,ele){
+                var field = getField('defaultbox.',this.name);
+                params.defaultbox[field]= $.trim(this.value);
+            });
+
+		if(!checkValid(params.savebox)){
 			return;
 		}
 		if(!confirm('请确认是否保存？')){
@@ -168,9 +180,9 @@ $(function() {
 		$.ajax({
 				url: '/@context@/@module@/save@upperHeadModule@.do',
 				type: 'post',
-				dataType: 'json',
+				contentType:"application/json",
 				timeout: 5000,
-				data:params,
+				data:JSON.stringify(params),
 				async: false,
 				complete:function(response,status){
 							if('success' == response.responseText){
@@ -463,7 +475,11 @@ $(function() {
 <div style="background:white;" >
 <form method="post" action="" id="searchForm">			
 		<div class="mRtBox">
-		
+            <#if defaultbox?exists>
+                <#list defaultbox?keys as key>
+                  <input type="hidden" name="defaultbox.${key}" value="${defaultbox["${key}"]}"/>
+                </#list>
+            </#if>
 			<div class="rTitle" >
 				<h3><i class="title"></i><span id="title">@moduleCN@管理</span></h3>
 				<div class="description-btn">
@@ -507,7 +523,7 @@ $(function() {
 				<tr style="position:relative;top:expression(this.offsetParent.scrollTop);">
 					<th style="width:60px;"><input name="checkall" id="checkall" type="checkbox" onclick="unselectAll()"/>&nbsp;全选</th>
 					@listTH@
-					<th style="width:80px;">操作</th>
+					<th style="">操作</th>
 				</tr>
 				<#list objs as obj>
 				<tr >
@@ -518,6 +534,7 @@ $(function() {
 					@listTD@
 
 					<td>
+					    @relsBtn@
                 		<a  href="javascript:void(0)" onclick="doDelete({ID:'${obj.ID?c}'})">删除</a>&nbsp;| 
                     	<a  href="javascript:void(0)" onclick="showSave({ID:'${obj.ID?c}'})">修改</a>
 					</td>
@@ -546,6 +563,11 @@ $(function() {
 </div>
 <div id="saveDialog" title="@moduleCN@保存" style="display:none" >
 	<input type="hidden" class="savebox" name="saveboxID" id="saveboxID" >
+	<#if defaultbox?exists>
+        <#list defaultbox?keys as key>
+          <input type="hidden" class="defaultbox" name="defaultbox.${key}" value="${defaultbox["${key}"]}"/>
+        </#list>
+    </#if>
 	<div class="box-content">
 	<table style="margin-top:10px;font-size:12px;">
 		

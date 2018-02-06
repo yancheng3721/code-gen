@@ -1,7 +1,7 @@
-package com.concentrate.search.codegen.beanImpl.admin;
+package com.concentrate.admin.codegen.beanImpl.yuyan;
 
-import com.concentrate.search.codegen.ProjectConfig;
-import com.concentrate.search.codegen.beanImpl.BaseModule;
+import com.concentrate.admin.codegen.ProjectConfig;
+import com.concentrate.admin.codegen.beanImpl.BaseModule;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -9,37 +9,23 @@ import java.util.Map;
 /**
  * Created by admin on 2017/5/20.
  */
-public class RoleConfig extends BaseModule {
+public class UserConfig extends BaseModule {
 
-    public RoleConfig(ProjectConfig projectConfig) {
+    public UserConfig(ProjectConfig projectConfig) {
         super(projectConfig);
     }
 
-    /**
-     * drop table if exists T_ROLE;
-
-    create table T_ROLE
-            (
-                    ID                   bigint not null auto_increment,
-                    NAME                 varchar(120) not null,
-    CODE                 varchar(120) not null,
-    STATUS               smallint not null,
-    CREATE_TIME          timestamp not null,
-    UPDATE_TIME          timestamp not null,
-    UPDATE_USER          varchar(60),
-    primary key (ID)
-    );
-
-    * @return
-     */
     @Override
     public LinkedHashMap<String, Map<String, String>> getAllFileds() {
         LinkedHashMap<String, Map<String, String>> results = new LinkedHashMap<String, Map<String, String>>();
         results.put("ID", newField("ID", "ID"));
-        results.put("NAME", newField("NAME", "角色名", "NOT_NULL"));
-        results.put("CODE", newField("CODE", "角色编码"));
+        results.put("NAME", newField("NAME", "用户名", "NOT_NULL"));
+        results.put("CODE", newField("CODE", "用户编号", "NOT_NULL"));
+        results.put("ALIAS", newField("ALIAS", "别名"));
+        results.put("PASSWORD",
+                newField("PASSWORD", "密码", "NOT_NULL"));
         results.put("STATUS",
-                newField("STATUS", "角色状态", "NOT_NULL"));
+                newField("STATUS", "账号状态", "NOT_NULL"));
         results.put("UPDATE_USER",
                 newField("UPDATE_USER", "更新用户"));
         results.put("CREATE_TIME",
@@ -59,6 +45,7 @@ public class RoleConfig extends BaseModule {
         LinkedHashMap<String, Map<String, String>> result = new LinkedHashMap<String, Map<String, String>>();
         Map<String, String> status = new LinkedHashMap<String,String>();
         result.put("STATUS",status);
+        status.put("","请选择");
         status.put("0","无效");
         status.put("1","有效");
         return result;
@@ -66,27 +53,27 @@ public class RoleConfig extends BaseModule {
 
     @Override
     public String getSearchFileds() {
-        return "NAME,CODE,STATUS";
+        return "NAME,CODE,ALIAS,STATUS";
     }
 
     @Override
     public String getViewFields() {
-        return "NAME,CODE,STATUS,CREATE_TIME,UPDATE_TIME,UPDATE_USER";
+        return "NAME,CODE,ALIAS,STATUS,CREATE_TIME,UPDATE_TIME,UPDATE_USER";
     }
 
     @Override
     public String getSaveFields() {
-        return "NAME,CODE,STATUS";
+        return "NAME,CODE,ALIAS,PASSWORD,STATUS";
     }
 
     @Override
     public String getExportFields() {
-        return "NAME,CODE,STATUS,CREATE_TIME,UPDATE_TIME,UPDATE_USER";
+        return "NAME,CODE,ALIAS,STATUS";
     }
 
     @Override
     public String getImportFields() {
-        return "NAME,CODE,STATUS";
+        return "NAME,CODE,ALIAS,PASSWORD,STATUS";
     }
 
     @Override
@@ -105,27 +92,27 @@ public class RoleConfig extends BaseModule {
 
     @Override
     public String getModule() {
-        return "role";
+        return "user";
     }
 
     @Override
     public String getModuleCN() {
-        return "角色";
+        return "用户";
     }
 
     @Override
     public String getTableName() {
-        return "T_ROLE";
+        return "T_USER";
     }
 
     @Override
     public String getUniqKeys() {
-        return "NAME";
+        return "NAME,CODE";
     }
 
     @Override
     public String getQuerySql() {
         //"NAME,ALIAS,STATUS,CREATE_TIME,UPDATE_TIME,UPDATE_USER"
-        return "SELECT NAME,CODE,STATUS,CREATE_TIME,UPDATE_TIME,UPDATE_USER FROM T_ROLE";
+        return "SELECT ID,NAME,CODE,ALIAS,STATUS,CREATE_TIME,UPDATE_TIME,UPDATE_USER FROM T_USER ORDER BY NAME,CREATE_TIME";
     }
 }

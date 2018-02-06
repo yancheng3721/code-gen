@@ -1,7 +1,7 @@
-package com.concentrate.search.codegen.beanImpl.admin;
+package com.concentrate.admin.codegen.beanImpl.yuyan;
 
-import com.concentrate.search.codegen.ProjectConfig;
-import com.concentrate.search.codegen.beanImpl.BaseModule;
+import com.concentrate.admin.codegen.ProjectConfig;
+import com.concentrate.admin.codegen.beanImpl.BaseModule;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

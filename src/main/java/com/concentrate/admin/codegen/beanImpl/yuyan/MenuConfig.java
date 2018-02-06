@@ -1,31 +1,33 @@
-package com.concentrate.search.codegen.beanImpl.admin;
+package com.concentrate.admin.codegen.beanImpl.yuyan;
 
-import com.concentrate.search.codegen.ProjectConfig;
-import com.concentrate.search.codegen.beanImpl.BaseModule;
+import com.concentrate.admin.codegen.ProjectConfig;
+import com.concentrate.admin.codegen.beanImpl.BaseModule;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * create table T_RESOURCE
+ *
+ * create table T_MENU
  (
  ID                   bigint not null auto_increment,
- MENU_ID              bigint not null,
+ PARENT_ID            bigint not null,
  NAME                 varchar(120) not null,
  CODE                 varchar(120) not null,
  ACTION               varchar(1000),
+ ICON                 varchar(1000),
  REMARK               varchar(2000),
+ STATUS               smallint not null,
  CREATE_TIME          timestamp not null,
  UPDATE_TIME          timestamp not null,
  UPDATE_USER          varchar(60),
  primary key (ID)
  );
-
  * Created by admin on 2017/5/20.
  */
-public class ResourceConfig extends BaseModule {
+public class MenuConfig extends BaseModule {
 
-    public ResourceConfig(ProjectConfig projectConfig) {
+    public MenuConfig(ProjectConfig projectConfig) {
         super(projectConfig);
     }
 
@@ -33,14 +35,15 @@ public class ResourceConfig extends BaseModule {
     public LinkedHashMap<String, Map<String, String>> getAllFileds() {
         LinkedHashMap<String, Map<String, String>> results = new LinkedHashMap<String, Map<String, String>>();
         results.put("ID", newField("ID", "ID"));
-        results.put("MENU_ID", newField("MENU_ID", "菜单ID"));
-        results.put("MENU_NAME", newField("MENU_NAME", "菜单名称"));
-        results.put("NAME", newField("NAME", "资源名称", "NOT_NULL"));
-        results.put("CODE", newField("CODE", "资源编码", "NOT_NULL"));
+        results.put("PARENT_ID", newField("PARENT_ID", "上级菜单ID"));
+        results.put("PARENT_CODE", newField("PARENT_CODE", "上级菜单编码"));
+        results.put("PARENT_NAME", newField("PARENT_NAME", "上级菜单名称"));
+        results.put("NAME", newField("NAME", "菜单名称", "NOT_NULL"));
+        results.put("CODE", newField("CODE", "菜单编码"));
         results.put("ACTION",
-                newField("ACTION", "资源链接", "NOT_NULL"));
-        results.put("REMARK",
-                newField("REMARK", "备注", "NOT_NULL"));
+                newField("ACTION", "地址", "NOT_NULL"));
+        results.put("ICON",
+                newField("ICON", "图标", "NOT_NULL"));
         results.put("UPDATE_USER",
                 newField("UPDATE_USER", "更新用户"));
         results.put("CREATE_TIME",
@@ -62,27 +65,27 @@ public class ResourceConfig extends BaseModule {
 
     @Override
     public String getSearchFileds() {
-        return "NAME,CODE,ACTION,REMARK";
+        return "NAME,CODE";
     }
 
     @Override
     public String getViewFields() {
-        return "NAME,CODE,ACTION,REMARK,CREATE_TIME,UPDATE_TIME,UPDATE_USER";
+        return "NAME,CODE,PARENT_CODE,PARENT_NAME,ACTION,ICON,CREATE_TIME,UPDATE_TIME,UPDATE_USER";
     }
 
     @Override
     public String getSaveFields() {
-        return "NAME,MENU_ID,CODE,ACTION,REMARK";
+        return "NAME,CODE,PARENT_ID,ACTION,ICON";
     }
 
     @Override
     public String getExportFields() {
-        return "NAME,MENU_ID,MENU_NAME,CODE,ACTION,REMARK,CREATE_TIME,UPDATE_TIME,UPDATE_USER";
+        return "NAME,CODE,PARENT_CODE,PARENT_NAME,ACTION,ICON";
     }
 
     @Override
     public String getImportFields() {
-        return "NAME,MENU_ID,CODE,ACTION,REMARK";
+        return "NAME,CODE,PARENT_ID,ACTION,ICON";
     }
 
     @Override
@@ -101,40 +104,27 @@ public class ResourceConfig extends BaseModule {
 
     @Override
     public String getModule() {
-        return "resource";
+        return "menu";
     }
 
     @Override
     public String getModuleCN() {
-        return "资源";
+        return "菜单";
     }
 
     @Override
     public String getTableName() {
-        return "T_RESOURCE";
+        return "T_MENU";
     }
 
     @Override
     public String getUniqKeys() {
-        return "NAME";
+        return "ID";
     }
 
-
-    /**
-     *  ID                   bigint not null auto_increment,
-     MENU_ID              bigint not null,
-     NAME                 varchar(120) not null,
-     CODE                 varchar(120) not null,
-     ACTION               varchar(1000),
-     REMARK               varchar(2000),
-     CREATE_TIME          timestamp not null,
-     UPDATE_TIME          timestamp not null,
-     UPDATE_USER          varchar(60),
-     * @return
-     */
     @Override
     public String getQuerySql() {
         //"NAME,ALIAS,STATUS,CREATE_TIME,UPDATE_TIME,UPDATE_USER"
-        return "SELECT A.NAME,A.MENU_ID,A.CODE,A.ACTION,A.REMARK,A.CREATE_TIME,A.UPDATE_TIME,A.UPDATE_USER,B.NAME AS MENU_NAME FROM T_RESOURCE A LEFT JOIN T_MENU B ON A.MENU_ID=B.ID";
+        return "SELECT A.ID,A.NAME,A.CODE,A.PARENT_ID,A.ACTION,A.ICON,A.CREATE_TIME,A.UPDATE_TIME,A.UPDATE_USER,B.NAME AS PARENT_NAME,B.CODE AS PARENT_CODE FROM T_MENU A LEFT JOIN T_MENU B ON A.PARENT_ID=B.ID";
     }
 }

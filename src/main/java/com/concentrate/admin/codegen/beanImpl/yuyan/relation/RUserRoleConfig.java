@@ -1,7 +1,7 @@
-package com.concentrate.search.codegen.beanImpl.admin;
+package com.concentrate.admin.codegen.beanImpl.yuyan.relation;
 
-import com.concentrate.search.codegen.ProjectConfig;
-import com.concentrate.search.codegen.beanImpl.BaseModule;
+import com.concentrate.admin.codegen.ProjectConfig;
+import com.concentrate.admin.codegen.beanImpl.BaseModule;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -25,9 +25,9 @@ import java.util.Map;
  );
  * Created by admin on 2017/5/20.
  */
-public class MenuConfig extends BaseModule {
+public class RUserRoleConfig extends BaseModule {
 
-    public MenuConfig(ProjectConfig projectConfig) {
+    public RUserRoleConfig(ProjectConfig projectConfig) {
         super(projectConfig);
     }
 
