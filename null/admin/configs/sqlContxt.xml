@@ -1,0 +1,6 @@
+<map>
+  <entry>
+    <string>user</string>
+    <string>SELECT ID,NAME,CODE,ALIAS,STATUS,CREATE_TIME,UPDATE_TIME,UPDATE_USER FROM T_USER ORDER BY NAME,CREATE_TIME</string>
+  </entry>
+</map>
