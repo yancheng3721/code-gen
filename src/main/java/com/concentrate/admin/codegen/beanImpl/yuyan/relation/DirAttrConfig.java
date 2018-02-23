@@ -113,7 +113,7 @@ public class DirAttrConfig  extends BaseModule {
 
     @Override
     public String getUniqKeys() {
-        return "DIR_ID";
+        return "DIR_ID,NAME";
     }
 
     @Override
